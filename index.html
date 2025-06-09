@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FinTrack Pro | Professional Expense Tracker</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <style>
@@ -12,22 +13,18 @@
             --primary: #4f46e5;
             --primary-light: #6366f1;
             --primary-dark: #4338ca;
-            --primary-ultralight: #e0e7ff;
             --secondary: #ec4899;
             --secondary-light: #f43f5e;
             --secondary-dark: #db2777;
             --success: #10b981;
             --success-light: #34d399;
             --success-dark: #059669;
-            --success-ultralight: #d1fae5;
             --warning: #f59e0b;
             --warning-light: #fbbf24;
             --warning-dark: #d97706;
-            --warning-ultralight: #fef3c7;
             --danger: #ef4444;
             --danger-light: #f87171;
             --danger-dark: #dc2626;
-            --danger-ultralight: #fee2e2;
             --dark: #1e293b;
             --dark-light: #334155;
             --light: #f8fafc;
@@ -36,7 +33,7 @@
             --gray-light: #e2e8f0;
             --gray-dark: #64748b;
             --card-bg: #ffffff;
-            --body-bg: #f8fafc;
+            --body-bg: #f1f5f9;
             --text-color: #1e293b;
             --text-secondary: #64748b;
             --border-color: #e2e8f0;
@@ -47,7 +44,6 @@
             --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
             --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
             --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-            --transition-slow: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             --spacing-xs: 0.25rem;
             --spacing-sm: 0.5rem;
             --spacing: 1rem;
@@ -62,37 +58,21 @@
             --font-size-xl: 1.5rem;
             --font-size-2xl: 1.75rem;
             --font-size-3xl: 2rem;
-            --font-size-4xl: 2.5rem;
-            --sidebar-width: 280px;
-            --header-height: 70px;
         }
 
         [data-theme="dark"] {
             --primary: #818cf8;
             --primary-light: #a5b4fc;
             --primary-dark: #6366f1;
-            --primary-ultralight: rgba(129, 140, 248, 0.1);
             --secondary: #f472b6;
             --secondary-light: #f9a8d4;
             --secondary-dark: #ec4899;
-            --success: #34d399;
-            --success-light: #6ee7b7;
-            --success-dark: #10b981;
-            --success-ultralight: rgba(52, 211, 153, 0.1);
-            --warning: #fbbf24;
-            --warning-light: #fcd34d;
-            --warning-dark: #f59e0b;
-            --warning-ultralight: rgba(251, 191, 36, 0.1);
-            --danger: #f87171;
-            --danger-light: #fca5a5;
-            --danger-dark: #ef4444;
-            --danger-ultralight: rgba(248, 113, 113, 0.1);
             --card-bg: #1e293b;
             --body-bg: #0f172a;
             --text-color: #f8fafc;
             --text-secondary: #94a3b8;
             --border-color: #334155;
-            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.25);
+            --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.25);
             --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.25), 0 2px 4px -1px rgba(0, 0, 0, 0.15);
             --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.25), 0 4px 6px -2px rgba(0, 0, 0, 0.15);
             --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.25), 0 10px 10px -5px rgba(0, 0, 0, 0.15);
@@ -112,10 +92,10 @@
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            font-family: 'Manrope', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             background-color: var(--body-bg);
             color: var(--text-color);
-            transition: var(--transition-slow);
+            transition: var(--transition);
             min-height: 100vh;
             line-height: 1.5;
             text-rendering: optimizeLegibility;
@@ -124,10 +104,10 @@
         }
 
         h1, h2, h3, h4, h5, h6 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-weight: 600;
+            font-weight: 700;
             line-height: 1.25;
             color: var(--text-color);
+            font-family: 'Manrope', sans-serif;
         }
 
         a {
@@ -203,10 +183,6 @@
             color: var(--warning);
         }
 
-        .text-primary {
-            color: var(--primary);
-        }
-
         .d-flex {
             display: flex;
         }
@@ -259,53 +235,30 @@
             margin-bottom: var(--spacing-xs);
         }
 
-        .mb-2 {
-            margin-bottom: var(--spacing-sm);
-        }
-
-        .mb-3 {
-            margin-bottom: var(--spacing);
-        }
-
-        .mb-4 {
-            margin-bottom: var(--spacing-md);
-        }
-
-        .mb-5 {
-            margin-bottom: var(--spacing-lg);
-        }
-
         /* Layout */
         .app {
             display: grid;
-            grid-template-columns: var(--sidebar-width) 1fr;
-            grid-template-rows: var(--header-height) 1fr;
+            grid-template-columns: 240px 1fr;
             min-height: 100vh;
         }
 
-        /* Header */
-        .header {
-            grid-column: 2;
+        /* Sidebar */
+        .sidebar {
+            background-color: var(--card-bg);
+            border-right: 1px solid var(--border-color);
+            height: 100vh;
             position: sticky;
             top: 0;
-            z-index: 100;
-            background-color: var(--card-bg);
-            color: var(--text-color);
-            box-shadow: var(--shadow-sm);
-            padding: 0 var(--spacing-lg);
-            height: var(--header-height);
+            padding: var(--spacing);
             display: flex;
-            align-items: center;
-            justify-content: flex-end;
-            border-bottom: 1px solid var(--border-color);
+            flex-direction: column;
+            z-index: 100;
         }
 
-        .header__container {
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-            gap: var(--spacing);
-            width: 100%;
+        .sidebar__header {
+            padding: var(--spacing) 0;
+            margin-bottom: var(--spacing);
+            border-bottom: 1px solid var(--border-color);
         }
 
         .logo {
@@ -314,115 +267,125 @@
             gap: var(--spacing-sm);
             font-size: var(--font-size-lg);
             font-weight: 700;
-            font-family: 'Space Grotesk', sans-serif;
+            color: var(--primary);
         }
 
-        .logo__icon {
-            font-size: var(--font-size-xl);
+        .logo__img {
+            width: 32px;
+            height: 32px;
+        }
+
+        .sidebar__nav {
+            flex: 1;
+            overflow-y: auto;
+        }
+
+        .nav__item {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            padding: var(--spacing-sm) var(--spacing);
+            border-radius: var(--border-radius-sm);
+            font-weight: 500;
+            color: var(--text-secondary);
+            transition: var(--transition);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .nav__item:hover:not(.nav__item--active) {
+            background-color: rgba(99, 102, 241, 0.05);
             color: var(--primary);
+        }
+
+        .nav__item--active {
+            background-color: rgba(99, 102, 241, 0.1);
+            color: var(--primary);
+        }
+
+        .nav__icon {
+            width: 20px;
+            text-align: center;
+            font-size: var(--font-size-sm);
+        }
+
+        .sidebar__footer {
+            padding-top: var(--spacing);
+            border-top: 1px solid var(--border-color);
+        }
+
+        /* Main Content */
+        .main {
+            flex: 1;
+            padding: var(--spacing);
+            background-color: var(--body-bg);
+        }
+
+        /* Header */
+        .header {
+            background-color: var(--card-bg);
+            padding: var(--spacing) 0;
+            margin-bottom: var(--spacing);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 90;
+        }
+
+        .header__container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 var(--spacing);
+        }
+
+        .header__title {
+            font-size: var(--font-size-xl);
+            font-weight: 700;
+        }
+
+        .header__actions {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing);
+        }
+
+        .user-menu {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+
+        .user-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: var(--primary-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
         }
 
         .theme-toggle {
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 2.5rem;
-            height: 2.5rem;
+            width: 2.25rem;
+            height: 2.25rem;
             border-radius: 50%;
             color: var(--text-color);
-            background-color: var(--primary-ultralight);
+            background-color: var(--body-bg);
             transition: var(--transition);
         }
 
         .theme-toggle:hover {
-            background-color: var(--primary-light);
-            color: white;
+            background-color: var(--border-color);
         }
 
         .theme-toggle__icon {
             font-size: var(--font-size-md);
-        }
-
-        /* Sidebar Navigation */
-        .sidebar {
-            grid-column: 1;
-            grid-row: 1 / span 2;
-            background-color: var(--card-bg);
-            border-right: 1px solid var(--border-color);
-            padding: var(--spacing-lg) 0;
-            overflow-y: auto;
-            position: sticky;
-            top: 0;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .sidebar__header {
-            padding: 0 var(--spacing-lg) var(--spacing-lg);
-            border-bottom: 1px solid var(--border-color);
-            margin-bottom: var(--spacing);
-        }
-
-        .nav {
-            display: flex;
-            flex-direction: column;
-            gap: var(--spacing-xs);
-            padding: 0 var(--spacing);
-        }
-
-        .nav__item {
-            padding: var(--spacing-sm) var(--spacing);
-            text-align: left;
-            font-weight: 500;
-            color: var(--text-secondary);
-            transition: var(--transition);
-            position: relative;
-            cursor: pointer;
-            border-radius: var(--border-radius-sm);
-            display: flex;
-            align-items: center;
-            gap: var(--spacing);
-        }
-
-        .nav__item:hover:not(.nav__item--active) {
-            background-color: var(--primary-ultralight);
-            color: var(--primary);
-        }
-
-        .nav__item--active {
-            background-color: var(--primary-ultralight);
-            color: var(--primary);
-            font-weight: 600;
-        }
-
-        .nav__item--active::after {
-            content: '';
-            position: absolute;
-            right: var(--spacing);
-            top: 50%;
-            transform: translateY(-50%);
-            width: 4px;
-            height: 60%;
-            background-color: var(--primary);
-            border-radius: 2px;
-        }
-
-        .nav__icon {
-            width: 1.5rem;
-            text-align: center;
-            font-size: var(--font-size-md);
-        }
-
-        .nav__text {
-            flex: 1;
-        }
-
-        /* Main Content */
-        .main {
-            grid-column: 2;
-            padding: var(--spacing-lg);
-            background-color: var(--body-bg);
         }
 
         /* Dashboard Grid */
@@ -437,15 +400,15 @@
         .card {
             background-color: var(--card-bg);
             border-radius: var(--border-radius);
-            padding: var(--spacing-lg);
+            padding: var(--spacing);
             box-shadow: var(--shadow-sm);
             transition: var(--transition);
             border: 1px solid var(--border-color);
         }
 
         .card:hover {
+            transform: translateY(-0.25rem);
             box-shadow: var(--shadow-md);
-            transform: translateY(-2px);
         }
 
         .card--full {
@@ -460,18 +423,15 @@
         }
 
         .card__title {
-            font-size: var(--font-size-sm);
-            font-weight: 500;
+            font-size: var(--font-size);
+            font-weight: 600;
             color: var(--text-secondary);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
         }
 
         .card__value {
-            font-size: var(--font-size-3xl);
+            font-size: var(--font-size-2xl);
             font-weight: 700;
-            margin: var(--spacing-sm) 0;
-            font-family: 'Space Grotesk', sans-serif;
+            margin-bottom: var(--spacing-xs);
         }
 
         .card__change {
@@ -485,32 +445,46 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 3.5rem;
-            height: 3.5rem;
+            width: 3rem;
+            height: 3rem;
             border-radius: var(--border-radius-sm);
-            font-size: var(--font-size-xl);
-            background-color: var(--primary-ultralight);
-            color: var(--primary);
+            font-size: var(--font-size-lg);
         }
 
         /* Summary Cards */
+        .card--income {
+            border-left: 4px solid var(--success);
+        }
+
         .card--income .card__icon {
-            background-color: var(--success-ultralight);
+            background-color: rgba(16, 185, 129, 0.1);
             color: var(--success);
         }
 
+        .card--expense {
+            border-left: 4px solid var(--danger);
+        }
+
         .card--expense .card__icon {
-            background-color: var(--danger-ultralight);
+            background-color: rgba(239, 68, 68, 0.1);
             color: var(--danger);
         }
 
+        .card--balance {
+            border-left: 4px solid var(--primary);
+        }
+
         .card--balance .card__icon {
-            background-color: var(--primary-ultralight);
+            background-color: rgba(99, 102, 241, 0.1);
             color: var(--primary);
         }
 
+        .card--budget {
+            border-left: 4px solid var(--warning);
+        }
+
         .card--budget .card__icon {
-            background-color: var(--warning-ultralight);
+            background-color: rgba(245, 158, 11, 0.1);
             color: var(--warning);
         }
 
@@ -533,12 +507,7 @@
             text-align: center;
             margin-bottom: var(--spacing-xl);
             font-size: var(--font-size-xl);
-            font-weight: 600;
-            color: var(--primary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: var(--spacing);
+            font-weight: 700;
         }
 
         .form__group {
@@ -548,7 +517,7 @@
         .form__label {
             display: block;
             margin-bottom: var(--spacing-xs);
-            font-weight: 500;
+            font-weight: 600;
             color: var(--text-secondary);
             font-size: var(--font-size-sm);
         }
@@ -598,7 +567,7 @@
             justify-content: center;
             padding: var(--spacing-sm) var(--spacing-md);
             border-radius: var(--border-radius-sm);
-            font-weight: 500;
+            font-weight: 600;
             cursor: pointer;
             transition: var(--transition);
             border: none;
@@ -613,7 +582,6 @@
 
         .btn--primary:hover {
             background-color: var(--primary-dark);
-            transform: translateY(-1px);
         }
 
         .btn--block {
@@ -639,13 +607,10 @@
         .table th {
             text-align: left;
             padding: var(--spacing) var(--spacing-md);
-            font-weight: 500;
+            font-weight: 600;
             color: var(--text-secondary);
-            background-color: var(--primary-ultralight);
+            background-color: rgba(99, 102, 241, 0.05);
             border-bottom: 1px solid var(--border-color);
-            text-transform: uppercase;
-            font-size: var(--font-size-xs);
-            letter-spacing: 0.5px;
         }
 
         .table td {
@@ -659,7 +624,7 @@
         }
 
         .table tr:hover {
-            background-color: var(--primary-ultralight);
+            background-color: rgba(99, 102, 241, 0.03);
         }
 
         /* Transaction Items */
@@ -667,19 +632,19 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 2.5rem;
-            height: 2.5rem;
+            width: 2.25rem;
+            height: 2.25rem;
             border-radius: var(--border-radius-sm);
             margin-right: var(--spacing-sm);
         }
 
         .transaction-type--income {
-            background-color: var(--success-ultralight);
+            background-color: rgba(16, 185, 129, 0.1);
             color: var(--success);
         }
 
         .transaction-type--expense {
-            background-color: var(--danger-ultralight);
+            background-color: rgba(239, 68, 68, 0.1);
             color: var(--danger);
         }
 
@@ -688,14 +653,13 @@
             padding: var(--spacing-xs) var(--spacing-sm);
             border-radius: 1rem;
             font-size: var(--font-size-xs);
-            font-weight: 500;
-            background-color: var(--primary-ultralight);
+            font-weight: 600;
+            background-color: rgba(99, 102, 241, 0.1);
             color: var(--primary);
         }
 
         .transaction-amount {
-            font-weight: 600;
-            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
         }
 
         .transaction-amount--income {
@@ -726,12 +690,12 @@
         }
 
         .action-btn:hover {
-            background-color: var(--primary-ultralight);
+            background-color: rgba(99, 102, 241, 0.1);
             color: var(--primary);
         }
 
         .action-btn--delete:hover {
-            background-color: var(--danger-ultralight);
+            background-color: rgba(239, 68, 68, 0.1);
             color: var(--danger);
         }
 
@@ -741,10 +705,6 @@
             gap: var(--spacing);
             margin-bottom: var(--spacing);
             flex-wrap: wrap;
-            background-color: var(--card-bg);
-            padding: var(--spacing);
-            border-radius: var(--border-radius);
-            border: 1px solid var(--border-color);
         }
 
         .filter-group {
@@ -782,14 +742,13 @@
         }
 
         .progress-title {
-            font-weight: 500;
+            font-weight: 600;
             font-size: var(--font-size-sm);
         }
 
         .progress-amount {
-            font-weight: 600;
+            font-weight: 700;
             font-size: var(--font-size-sm);
-            font-family: 'Space Grotesk', sans-serif;
         }
 
         .progress-bar {
@@ -824,7 +783,6 @@
         /* Charts */
         .chart-container {
             min-height: 300px;
-            margin-top: var(--spacing);
         }
 
         /* Empty States */
@@ -838,6 +796,43 @@
             font-size: var(--font-size-3xl);
             margin-bottom: var(--spacing);
             color: var(--gray);
+        }
+
+        /* Login Form */
+        .login-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: var(--body-bg);
+        }
+
+        .login-card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-lg);
+            padding: var(--spacing-xl);
+            width: 100%;
+            max-width: 400px;
+            border: 1px solid var(--border-color);
+        }
+
+        .login-logo {
+            text-align: center;
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .login-logo img {
+            width: 80px;
+            height: 80px;
+            margin-bottom: var(--spacing);
+        }
+
+        .login-title {
+            font-size: var(--font-size-xl);
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: var(--spacing-xl);
         }
 
         /* Notifications */
@@ -924,67 +919,44 @@
         @media (max-width: 768px) {
             .app {
                 grid-template-columns: 1fr;
-                grid-template-rows: auto 1fr;
             }
-
+            
             .sidebar {
-                grid-column: 1;
-                grid-row: 1;
                 height: auto;
-                position: sticky;
-                top: 0;
-                z-index: 100;
-                padding: var(--spacing) 0;
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                top: auto;
                 border-right: none;
-                border-bottom: 1px solid var(--border-color);
-            }
-
-            .sidebar__header {
-                display: none;
-            }
-
-            .nav {
-                flex-direction: row;
-                overflow-x: auto;
+                border-top: 1px solid var(--border-color);
                 padding: var(--spacing-sm);
-                scrollbar-width: none;
             }
-
-            .nav::-webkit-scrollbar {
-                display: none;
+            
+            .sidebar__nav {
+                display: flex;
+                overflow-x: auto;
+                padding-bottom: var(--spacing-sm);
             }
-
+            
             .nav__item {
                 flex-direction: column;
-                padding: var(--spacing-sm);
+                padding: var(--spacing-xs) var(--spacing-sm);
                 font-size: var(--font-size-xs);
-                min-width: 80px;
             }
-
-            .nav__item--active::after {
-                right: auto;
-                bottom: 0;
-                top: auto;
-                left: 50%;
-                transform: translateX(-50%);
-                width: 60%;
-                height: 3px;
-            }
-
-            .nav__text {
+            
+            .nav__item span {
                 display: none;
             }
-
-            .header {
-                grid-column: 1;
-                padding: 0 var(--spacing);
+            
+            .sidebar__header, .sidebar__footer {
+                display: none;
             }
-
+            
             .main {
-                grid-column: 1;
-                padding: var(--spacing);
+                padding-bottom: 80px;
             }
-
+            
             .form-container {
                 padding: var(--spacing) 0;
             }
@@ -995,6 +967,12 @@
         }
 
         @media (max-width: 480px) {
+            .header__container {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: var(--spacing-sm);
+            }
+
             .filter-bar {
                 flex-direction: column;
                 gap: var(--spacing-sm);
@@ -1007,231 +985,320 @@
     </style>
 </head>
 <body class="app">
-    <aside class="sidebar">
-        <div class="sidebar__header">
-            <div class="logo">
-                <i class="fas fa-wallet logo__icon"></i>
-                <span>FinTrack Pro</span>
+    <!-- Login Screen (shown by default) -->
+    <div id="loginScreen" class="login-container">
+        <div class="login-card">
+            <div class="login-logo">
+                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjNGY0NmU1IiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTEyIDE1djJtLTYgNGgxMmEyIDIgMCAwIDAgMi0ydi02YTIgMiAwIDAgMC0yLTJoLTIuNWwtLjUtMS41YTIgMiAwIDAgMC0xLjgtMUg5LjhhMiAyIDAgMCAwLTEuOCAxbC0uNSAxLjVINWEyIDIgMCAwIDAtMiAydjZhMiAyIDAgMCAwIDIgMloiPjwvcGF0aD48cGF0aCBkPSJNMTIgMTVhMyAzIDAgMSAwIDAtNiAzIDMgMCAwIDAgMCA2WiI+PC9wYXRoPjwvc3ZnPg==" alt="FinTrack Pro Logo">
+                <h1 class="login-title">FinTrack Pro</h1>
             </div>
+            <form id="loginForm">
+                <div class="form__group">
+                    <label for="login-email" class="form__label">Email</label>
+                    <input type="email" id="login-email" class="form__control" placeholder="Enter your email" required>
+                </div>
+                <div class="form__group">
+                    <label for="login-password" class="form__label">Password</label>
+                    <input type="password" id="login-password" class="form__control" placeholder="Enter your password" required>
+                </div>
+                <button type="submit" class="btn btn--primary btn--block mt-4">
+                    <i class="fas fa-sign-in-alt"></i> Login
+                </button>
+            </form>
         </div>
-        <nav class="nav">
-            <div class="nav__item nav__item--active" data-target="dashboard">
-                <i class="fas fa-home nav__icon"></i>
-                <span class="nav__text">Dashboard</span>
+    </div>
+
+    <!-- Main App (hidden by default) -->
+    <div id="appContent" class="hidden">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar__header">
+                <div class="logo">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjNGY0NmU1IiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTEyIDE1djJtLTYgNGgxMmEyIDIgMCAwIDAgMi0ydi02YTIgMiAwIDAgMC0yLTJoLTIuNWwtLjUtMS41YTIgMiAwIDAgMC0xLjgtMUg5LjhhMiAyIDAgMCAwLTEuOCAxbC0uNSAxLjVINWEyIDIgMCAwIDAtMiAydjZhMiAyIDAgMCAwIDIgMloiPjwvcGF0aD48cGF0aCBkPSJNMTIgMTVhMyAzIDAgMSAwIDAtNiAzIDMgMCAwIDAgMCA2WiI+PC9wYXRoPjwvc3ZnPg==" alt="FinTrack Pro Logo" class="logo__img">
+                    <span>FinTrack Pro</span>
+                </div>
             </div>
-            <div class="nav__item" data-target="expense">
-                <i class="fas fa-shopping-cart nav__icon"></i>
-                <span class="nav__text">Expense</span>
+            <nav class="sidebar__nav">
+                <a href="#" class="nav__item nav__item--active" data-target="dashboard">
+                    <i class="fas fa-home nav__icon"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="#" class="nav__item" data-target="income">
+                    <i class="fas fa-money-bill-wave nav__icon"></i>
+                    <span>Income</span>
+                </a>
+                <a href="#" class="nav__item" data-target="expense">
+                    <i class="fas fa-shopping-cart nav__icon"></i>
+                    <span>Expenses</span>
+                </a>
+                <a href="#" class="nav__item" data-target="transactions">
+                    <i class="fas fa-list nav__icon"></i>
+                    <span>Transactions</span>
+                </a>
+                <a href="#" class="nav__item" data-target="budgets">
+                    <i class="fas fa-chart-pie nav__icon"></i>
+                    <span>Budgets</span>
+                </a>
+                <a href="#" class="nav__item" data-target="reports">
+                    <i class="fas fa-file-export nav__icon"></i>
+                    <span>Reports</span>
+                </a>
+            </nav>
+            <div class="sidebar__footer">
+                <button class="nav__item" id="logoutBtn">
+                    <i class="fas fa-sign-out-alt nav__icon"></i>
+                    <span>Logout</span>
+                </button>
             </div>
-            <div class="nav__item" data-target="income">
-                <i class="fas fa-money-bill-wave nav__icon"></i>
-                <span class="nav__text">Income</span>
-            </div>
-            <div class="nav__item" data-target="transactions">
-                <i class="fas fa-list nav__icon"></i>
-                <span class="nav__text">Transactions</span>
-            </div>
-            <div class="nav__item" data-target="budgets">
-                <i class="fas fa-chart-pie nav__icon"></i>
-                <span class="nav__text">Budgets</span>
-            </div>
-            <div class="nav__item" data-target="reports">
-                <i class="fas fa-file-export nav__icon"></i>
-                <span class="nav__text">Reports</span>
-            </div>
-        </nav>
-    </aside>
+        </aside>
 
-    <header class="header">
-        <div class="header__container">
-            <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
-                <i class="fas fa-moon theme-toggle__icon"></i>
-            </button>
-        </div>
-    </header>
-
-    <main class="main">
-        <div class="container">
-            <!-- Dashboard Section -->
-            <section id="dashboard" class="section">
-                <h2 class="mb-4">Dashboard Overview</h2>
-                <div class="dashboard">
-                    <!-- Summary Cards -->
-                    <div class="card card--income">
-                        <div class="card__header">
-                            <div>
-                                <div class="card__title">Total Income</div>
-                                <div class="card__value" id="total-income">$0</div>
-                                <div class="card__change text-success">
-                                    <i class="fas fa-arrow-up"></i> 0% from last month
-                                </div>
-                            </div>
-                            <div class="card__icon">
-                                <i class="fas fa-money-bill-wave"></i>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card card--expense">
-                        <div class="card__header">
-                            <div>
-                                <div class="card__title">Total Expense</div>
-                                <div class="card__value" id="total-expense">$0</div>
-                                <div class="card__change text-danger">
-                                    <i class="fas fa-arrow-down"></i> 0% from last month
-                                </div>
-                            </div>
-                            <div class="card__icon">
-                                <i class="fas fa-shopping-cart"></i>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card card--balance">
-                        <div class="card__header">
-                            <div>
-                                <div class="card__title">Current Balance</div>
-                                <div class="card__value" id="current-balance">$0</div>
-                                <div class="card__change text-success">
-                                    <i class="fas fa-arrow-up"></i> 0% from last month
-                                </div>
-                            </div>
-                            <div class="card__icon">
-                                <i class="fas fa-wallet"></i>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card card--budget">
-                        <div class="card__header">
-                            <div>
-                                <div class="card__title">Budget Used</div>
-                                <div class="card__value" id="budget-used">0%</div>
-                                <div class="card__change text-danger">
-                                    <i class="fas fa-exclamation-circle"></i> $0 remaining
-                                </div>
-                            </div>
-                            <div class="card__icon">
-                                <i class="fas fa-chart-pie"></i>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Expense Chart -->
-                    <div class="card" style="grid-column: span 8;">
-                        <div class="card__header">
-                            <div class="card__title">Monthly Expense Analysis</div>
-                            <select class="form__control" style="width: auto; padding: 0.5rem 1rem; border-radius: var(--border-radius-sm);" id="chart-period">
-                                <option value="month">This Month</option>
-                                <option value="year">This Year</option>
-                            </select>
-                        </div>
-                        <div id="expense-chart" class="chart-container"></div>
-                    </div>
-
-                    <!-- Income vs Expense -->
-                    <div class="card" style="grid-column: span 4;">
-                        <div class="card__header">
-                            <div class="card__title">Income vs Expense</div>
-                        </div>
-                        <div id="income-expense-chart" class="chart-container"></div>
-                    </div>
-
-                    <!-- Recent Transactions -->
-                    <div class="card" style="grid-column: span 7;">
-                        <div class="card__header">
-                            <div class="card__title">Recent Transactions</div>
-                            <a href="#" class="text-muted" style="font-size: var(--font-size-sm);">View All</a>
-                        </div>
-                        <div class="table-container">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th>Description</th>
-                                        <th>Category</th>
-                                        <th>Date</th>
-                                        <th>Amount</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="recent-transactions">
-                                    <tr>
-                                        <td colspan="4" class="empty-state">
-                                            <i class="fas fa-coins empty-state__icon"></i>
-                                            <p>No transactions yet</p>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-
-                    <!-- Budget Progress -->
-                    <div class="card" style="grid-column: span 5;">
-                        <div class="card__header">
-                            <div class="card__title">Budget Progress</div>
-                        </div>
-                        <div id="budget-progress-container" class="empty-state">
-                            <i class="fas fa-chart-pie empty-state__icon"></i>
-                            <p>No budgets set yet</p>
+        <!-- Main Content Area -->
+        <main class="main">
+            <header class="header">
+                <div class="header__container">
+                    <h1 class="header__title" id="pageTitle">Dashboard</h1>
+                    <div class="header__actions">
+                        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                            <i class="fas fa-moon theme-toggle__icon"></i>
+                        </button>
+                        <div class="user-menu">
+                            <div class="user-avatar">JS</div>
                         </div>
                     </div>
                 </div>
-            </section>
+            </header>
 
-            <!-- Income Section -->
-            <section id="income" class="section hidden">
-                <div class="form-container">
-                    <div class="form">
-                        <h2 class="form__title"><i class="fas fa-money-bill-wave"></i> Add Income</h2>
-                        <form id="income-form">
-                            <div class="form__group">
-                                <label for="income-amount" class="form__label">Amount</label>
-                                <input type="number" id="income-amount" class="form__control" placeholder="0.00" step="0.01" required>
+            <div class="container">
+                <!-- Dashboard Section -->
+                <section id="dashboard" class="section">
+                    <div class="dashboard">
+                        <!-- Summary Cards -->
+                        <div class="card card--income">
+                            <div class="card__header">
+                                <div>
+                                    <div class="card__title">Total Income</div>
+                                    <div class="card__value" id="total-income">$0</div>
+                                    <div class="card__change text-success">
+                                        <i class="fas fa-arrow-up"></i> 0% from last month
+                                    </div>
+                                </div>
+                                <div class="card__icon">
+                                    <i class="fas fa-money-bill-wave"></i>
+                                </div>
                             </div>
-                            <div class="form__group">
-                                <label for="income-source" class="form__label">Source</label>
+                        </div>
+
+                        <div class="card card--expense">
+                            <div class="card__header">
+                                <div>
+                                    <div class="card__title">Total Expense</div>
+                                    <div class="card__value" id="total-expense">$0</div>
+                                    <div class="card__change text-danger">
+                                        <i class="fas fa-arrow-down"></i> 0% from last month
+                                    </div>
+                                </div>
+                                <div class="card__icon">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card card--balance">
+                            <div class="card__header">
+                                <div>
+                                    <div class="card__title">Current Balance</div>
+                                    <div class="card__value" id="current-balance">$0</div>
+                                    <div class="card__change text-success">
+                                        <i class="fas fa-arrow-up"></i> 0% from last month
+                                    </div>
+                                </div>
+                                <div class="card__icon">
+                                    <i class="fas fa-wallet"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card card--budget">
+                            <div class="card__header">
+                                <div>
+                                    <div class="card__title">Budget Used</div>
+                                    <div class="card__value" id="budget-used">0%</div>
+                                    <div class="card__change text-danger">
+                                        <i class="fas fa-exclamation-circle"></i> $0 remaining
+                                    </div>
+                                </div>
+                                <div class="card__icon">
+                                    <i class="fas fa-chart-pie"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Expense Chart -->
+                        <div class="card" style="grid-column: span 8;">
+                            <div class="card__header">
+                                <div class="card__title">Monthly Expense Analysis</div>
+                                <select class="form__control" style="width: auto; padding: 0.25rem 0.5rem;" id="chart-period">
+                                    <option value="month">This Month</option>
+                                    <option value="year">This Year</option>
+                                </select>
+                            </div>
+                            <div id="expense-chart" class="chart-container"></div>
+                        </div>
+
+                        <!-- Income vs Expense -->
+                        <div class="card" style="grid-column: span 4;">
+                            <div class="card__header">
+                                <div class="card__title">Income vs Expense</div>
+                            </div>
+                            <div id="income-expense-chart" class="chart-container"></div>
+                        </div>
+
+                        <!-- Recent Transactions -->
+                        <div class="card" style="grid-column: span 7;">
+                            <div class="card__header">
+                                <div class="card__title">Recent Transactions</div>
+                                <a href="#" class="text-muted" style="font-size: var(--font-size-sm);">View All</a>
+                            </div>
+                            <div class="table-container">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Description</th>
+                                            <th>Category</th>
+                                            <th>Date</th>
+                                            <th>Amount</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="recent-transactions">
+                                        <tr>
+                                            <td colspan="4" class="empty-state">
+                                                <i class="fas fa-coins empty-state__icon"></i>
+                                                <p>No transactions yet</p>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Budget Progress -->
+                        <div class="card" style="grid-column: span 5;">
+                            <div class="card__header">
+                                <div class="card__title">Budget Progress</div>
+                            </div>
+                            <div id="budget-progress-container" class="empty-state">
+                                <i class="fas fa-chart-pie empty-state__icon"></i>
+                                <p>No budgets set yet</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Income Section -->
+                <section id="income" class="section hidden">
+                    <div class="form-container">
+                        <div class="form">
+                            <h2 class="form__title"><i class="fas fa-money-bill-wave"></i> Add Income</h2>
+                            <form id="income-form">
+                                <div class="form__group">
+                                    <label for="income-amount" class="form__label">Amount</label>
+                                    <input type="number" id="income-amount" class="form__control" placeholder="0.00" step="0.01" required>
+                                </div>
+                                <div class="form__group">
+                                    <label for="income-source" class="form__label">Source</label>
+                                    <div class="select-wrapper">
+                                        <select id="income-source" class="form__control form__select" required>
+                                            <option value="">Select Source</option>
+                                            <option value="Salary">Salary</option>
+                                            <option value="Freelance">Freelance</option>
+                                            <option value="Investment">Investment</option>
+                                            <option value="Gift">Gift</option>
+                                            <option value="Other">Other</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form__group">
+                                    <label for="income-date" class="form__label">Date</label>
+                                    <input type="date" id="income-date" class="form__control" required>
+                                </div>
+                                <div class="form__group">
+                                    <label for="income-note" class="form__label">Note (Optional)</label>
+                                    <input type="text" id="income-note" class="form__control" placeholder="Add a note">
+                                </div>
+                                <button type="submit" class="btn btn--primary btn--block">
+                                    <i class="fas fa-plus"></i> Add Income
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Expense Section -->
+                <section id="expense" class="section hidden">
+                    <div class="form-container">
+                        <div class="form">
+                            <h2 class="form__title"><i class="fas fa-shopping-cart"></i> Add Expense</h2>
+                            <form id="expense-form">
+                                <div class="form__group">
+                                    <label for="expense-amount" class="form__label">Amount</label>
+                                    <input type="number" id="expense-amount" class="form__control" placeholder="0.00" step="0.01" required>
+                                </div>
+                                <div class="form__group">
+                                    <label for="expense-category" class="form__label">Category</label>
+                                    <div class="select-wrapper">
+                                        <select id="expense-category" class="form__control form__select" required>
+                                            <option value="">Select Category</option>
+                                            <option value="Food">Food</option>
+                                            <option value="Transport">Transport</option>
+                                            <option value="Entertainment">Entertainment</option>
+                                            <option value="Shopping">Shopping</option>
+                                            <option value="Utilities">Utilities</option>
+                                            <option value="Health">Health</option>
+                                            <option value="Education">Education</option>
+                                            <option value="Other">Other</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form__group">
+                                    <label for="expense-date" class="form__label">Date</label>
+                                    <input type="date" id="expense-date" class="form__control" required>
+                                </div>
+                                <div class="form__group">
+                                    <label for="expense-note" class="form__label">Note (Optional)</label>
+                                    <input type="text" id="expense-note" class="form__control" placeholder="Add a note">
+                                </div>
+                                <button type="submit" class="btn btn--primary btn--block">
+                                    <i class="fas fa-plus"></i> Add Expense
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Transactions Section -->
+                <section id="transactions" class="section hidden">
+                    <div class="card">
+                        <div class="card__header">
+                            <div class="card__title">All Transactions</div>
+                        </div>
+                        <div class="filter-bar">
+                            <div class="search-bar">
+                                <i class="fas fa-search search-bar__icon"></i>
+                                <input type="text" class="form__control search-input" id="transaction-search" placeholder="Search transactions...">
+                            </div>
+                            <div class="filter-group">
                                 <div class="select-wrapper">
-                                    <select id="income-source" class="form__control form__select" required>
-                                        <option value="">Select Source</option>
-                                        <option value="Salary">Salary</option>
-                                        <option value="Freelance">Freelance</option>
-                                        <option value="Investment">Investment</option>
-                                        <option value="Gift">Gift</option>
-                                        <option value="Other">Other</option>
+                                    <select class="form__control form__select" id="transaction-type">
+                                        <option value="all">All Types</option>
+                                        <option value="income">Income</option>
+                                        <option value="expense">Expense</option>
                                     </select>
                                 </div>
                             </div>
-                            <div class="form__group">
-                                <label for="income-date" class="form__label">Date</label>
-                                <input type="date" id="income-date" class="form__control" required>
-                            </div>
-                            <div class="form__group">
-                                <label for="income-note" class="form__label">Note (Optional)</label>
-                                <input type="text" id="income-note" class="form__control" placeholder="Add a note">
-                            </div>
-                            <button type="submit" class="btn btn--primary btn--block">
-                                <i class="fas fa-plus"></i> Add Income
-                            </button>
-                        </form>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Expense Section -->
-            <section id="expense" class="section hidden">
-                <div class="form-container">
-                    <div class="form">
-                        <h2 class="form__title"><i class="fas fa-shopping-cart"></i> Add Expense</h2>
-                        <form id="expense-form">
-                            <div class="form__group">
-                                <label for="expense-amount" class="form__label">Amount</label>
-                                <input type="number" id="expense-amount" class="form__control" placeholder="0.00" step="0.01" required>
-                            </div>
-                            <div class="form__group">
-                                <label for="expense-category" class="form__label">Category</label>
+                            <div class="filter-group">
                                 <div class="select-wrapper">
-                                    <select id="expense-category" class="form__control form__select" required>
-                                        <option value="">Select Category</option>
+                                    <select class="form__control form__select" id="transaction-category">
+                                        <option value="all">All Categories</option>
                                         <option value="Food">Food</option>
                                         <option value="Transport">Transport</option>
                                         <option value="Entertainment">Entertainment</option>
@@ -1243,185 +1310,135 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="form__group">
-                                <label for="expense-date" class="form__label">Date</label>
-                                <input type="date" id="expense-date" class="form__control" required>
+                            <div class="filter-group">
+                                <input type="date" class="form__control" id="transaction-date">
                             </div>
-                            <div class="form__group">
-                                <label for="expense-note" class="form__label">Note (Optional)</label>
-                                <input type="text" id="expense-note" class="form__control" placeholder="Add a note">
-                            </div>
-                            <button type="submit" class="btn btn--primary btn--block">
-                                <i class="fas fa-plus"></i> Add Expense
-                            </button>
-                        </form>
+                        </div>
+                        <div class="table-container">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Description</th>
+                                        <th>Category</th>
+                                        <th>Date</th>
+                                        <th>Amount</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="all-transactions">
+                                    <tr>
+                                        <td colspan="5" class="empty-state">
+                                            <i class="fas fa-coins empty-state__icon"></i>
+                                            <p>No transactions yet</p>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
-                </div>
-            </section>
+                </section>
 
-            <!-- Transactions Section -->
-            <section id="transactions" class="section hidden">
-                <div class="card">
-                    <div class="card__header">
-                        <div class="card__title">All Transactions</div>
-                    </div>
-                    <div class="filter-bar">
-                        <div class="search-bar">
-                            <i class="fas fa-search search-bar__icon"></i>
-                            <input type="text" class="form__control search-input" id="transaction-search" placeholder="Search transactions...">
-                        </div>
-                        <div class="filter-group">
-                            <div class="select-wrapper">
-                                <select class="form__control form__select" id="transaction-type">
-                                    <option value="all">All Types</option>
-                                    <option value="income">Income</option>
-                                    <option value="expense">Expense</option>
-                                </select>
+                <!-- Budgets Section -->
+                <section id="budgets" class="section hidden">
+                    <div class="dashboard">
+                        <div class="card" style="grid-column: span 8;">
+                            <div class="card__header">
+                                <div class="card__title">Set Monthly Budgets</div>
+                            </div>
+                            <div style="padding: var(--spacing);">
+                                <form id="budget-form">
+                                    <div class="form__group">
+                                        <label for="total-budget" class="form__label">Monthly Budget Limit</label>
+                                        <input type="number" id="total-budget" class="form__control" placeholder="Enter total budget" step="0.01">
+                                    </div>
+                                    <div class="form__group">
+                                        <label for="food-budget" class="form__label">Food & Dining</label>
+                                        <input type="number" id="food-budget" class="form__control" placeholder="Enter budget amount" step="0.01">
+                                    </div>
+                                    <div class="form__group">
+                                        <label for="transport-budget" class="form__label">Transportation</label>
+                                        <input type="number" id="transport-budget" class="form__control" placeholder="Enter budget amount" step="0.01">
+                                    </div>
+                                    <div class="form__group">
+                                        <label for="entertainment-budget" class="form__label">Entertainment</label>
+                                        <input type="number" id="entertainment-budget" class="form__control" placeholder="Enter budget amount" step="0.01">
+                                    </div>
+                                    <div class="form__group">
+                                        <label for="shopping-budget" class="form__label">Shopping</label>
+                                        <input type="number" id="shopping-budget" class="form__control" placeholder="Enter budget amount" step="0.01">
+                                    </div>
+                                    <button type="submit" class="btn btn--primary btn--block">
+                                        <i class="fas fa-save"></i> Save Budgets
+                                    </button>
+                                </form>
                             </div>
                         </div>
-                        <div class="filter-group">
-                            <div class="select-wrapper">
-                                <select class="form__control form__select" id="transaction-category">
-                                    <option value="all">All Categories</option>
-                                    <option value="Food">Food</option>
-                                    <option value="Transport">Transport</option>
-                                    <option value="Entertainment">Entertainment</option>
-                                    <option value="Shopping">Shopping</option>
-                                    <option value="Utilities">Utilities</option>
-                                    <option value="Health">Health</option>
-                                    <option value="Education">Education</option>
-                                    <option value="Other">Other</option>
-                                </select>
+                        <div class="card" style="grid-column: span 4;">
+                            <div class="card__header">
+                                <div class="card__title">Budget Overview</div>
+                            </div>
+                            <div id="budget-overview" class="empty-state">
+                                <i class="fas fa-chart-pie empty-state__icon"></i>
+                                <p>No budgets set yet</p>
                             </div>
                         </div>
-                        <div class="filter-group">
-                            <input type="date" class="form__control" id="transaction-date">
-                        </div>
                     </div>
-                    <div class="table-container">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th>Description</th>
-                                    <th>Category</th>
-                                    <th>Date</th>
-                                    <th>Amount</th>
-                                    <th>Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody id="all-transactions">
-                                <tr>
-                                    <td colspan="5" class="empty-state">
-                                        <i class="fas fa-coins empty-state__icon"></i>
-                                        <p>No transactions yet</p>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </section>
+                </section>
 
-            <!-- Budgets Section -->
-            <section id="budgets" class="section hidden">
-                <div class="dashboard">
-                    <div class="card" style="grid-column: span 8;">
+                <!-- Reports Section -->
+                <section id="reports" class="section hidden">
+                    <div class="card">
                         <div class="card__header">
-                            <div class="card__title">Set Monthly Budgets</div>
+                            <div class="card__title">Generate Reports</div>
                         </div>
-                        <div style="padding: var(--spacing-lg);">
-                            <form id="budget-form">
-                                <div class="form__group">
-                                    <label for="total-budget" class="form__label">Monthly Budget Limit</label>
-                                    <input type="number" id="total-budget" class="form__control" placeholder="Enter total budget" step="0.01">
+                        <div style="padding: var(--spacing);">
+                            <div class="filter-bar">
+                                <div class="filter-group">
+                                    <label for="report-type" class="form__label">Report Type</label>
+                                    <div class="select-wrapper">
+                                        <select id="report-type" class="form__control form__select">
+                                            <option value="monthly">Monthly Summary</option>
+                                            <option value="category">Category Breakdown</option>
+                                            <option value="income-vs-expense">Income vs Expense</option>
+                                        </select>
+                                    </div>
                                 </div>
-                                <div class="form__group">
-                                    <label for="food-budget" class="form__label">Food & Dining</label>
-                                    <input type="number" id="food-budget" class="form__control" placeholder="Enter budget amount" step="0.01">
+                                <div class="filter-group">
+                                    <label for="report-month" class="form__label">Month</label>
+                                    <input type="month" id="report-month" class="form__control">
                                 </div>
-                                <div class="form__group">
-                                    <label for="transport-budget" class="form__label">Transportation</label>
-                                    <input type="number" id="transport-budget" class="form__control" placeholder="Enter budget amount" step="0.01">
+                                <div class="filter-group">
+                                    <label for="report-year" class="form__label">Year</label>
+                                    <div class="select-wrapper">
+                                        <select id="report-year" class="form__control form__select">
+                                            <!-- Years will be added dynamically -->
+                                        </select>
+                                    </div>
                                 </div>
-                                <div class="form__group">
-                                    <label for="entertainment-budget" class="form__label">Entertainment</label>
-                                    <input type="number" id="entertainment-budget" class="form__control" placeholder="Enter budget amount" step="0.01">
+                                <div class="filter-group" style="align-self: flex-end;">
+                                    <button type="button" id="generate-report" class="btn btn--primary">
+                                        <i class="fas fa-chart-bar"></i> Generate
+                                    </button>
                                 </div>
-                                <div class="form__group">
-                                    <label for="shopping-budget" class="form__label">Shopping</label>
-                                    <input type="number" id="shopping-budget" class="form__control" placeholder="Enter budget amount" step="0.01">
-                                </div>
-                                <button type="submit" class="btn btn--primary btn--block">
-                                    <i class="fas fa-save"></i> Save Budgets
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-                    <div class="card" style="grid-column: span 4;">
-                        <div class="card__header">
-                            <div class="card__title">Budget Overview</div>
-                        </div>
-                        <div id="budget-overview" class="empty-state">
-                            <i class="fas fa-chart-pie empty-state__icon"></i>
-                            <p>No budgets set yet</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Reports Section -->
-            <section id="reports" class="section hidden">
-                <div class="card">
-                    <div class="card__header">
-                        <div class="card__title">Generate Reports</div>
-                    </div>
-                    <div style="padding: var(--spacing-lg);">
-                        <div class="filter-bar">
-                            <div class="filter-group">
-                                <label for="report-type" class="form__label">Report Type</label>
-                                <div class="select-wrapper">
-                                    <select id="report-type" class="form__control form__select">
-                                        <option value="monthly">Monthly Summary</option>
-                                        <option value="category">Category Breakdown</option>
-                                        <option value="income-vs-expense">Income vs Expense</option>
-                                    </select>
+                                <div class="filter-group" style="align-self: flex-end;">
+                                    <button type="button" id="export-pdf" class="btn" style="background-color: var(--danger); color: white;">
+                                        <i class="fas fa-file-pdf"></i> Export PDF
+                                    </button>
                                 </div>
                             </div>
-                            <div class="filter-group">
-                                <label for="report-month" class="form__label">Month</label>
-                                <input type="month" id="report-month" class="form__control">
-                            </div>
-                            <div class="filter-group">
-                                <label for="report-year" class="form__label">Year</label>
-                                <div class="select-wrapper">
-                                    <select id="report-year" class="form__control form__select">
-                                        <!-- Years will be added dynamically -->
-                                    </select>
+                            <div id="report-container" class="mt-4">
+                                <div class="empty-state">
+                                    <i class="fas fa-chart-bar empty-state__icon"></i>
+                                    <h3>No Report Generated</h3>
+                                    <p>Select parameters and click "Generate" to create a report</p>
                                 </div>
-                            </div>
-                            <div class="filter-group" style="align-self: flex-end;">
-                                <button type="button" id="generate-report" class="btn btn--primary">
-                                    <i class="fas fa-chart-bar"></i> Generate
-                                </button>
-                            </div>
-                            <div class="filter-group" style="align-self: flex-end;">
-                                <button type="button" id="export-pdf" class="btn" style="background-color: var(--danger); color: white;">
-                                    <i class="fas fa-file-pdf"></i> Export PDF
-                                </button>
-                            </div>
-                        </div>
-                        <div id="report-container" class="mt-4">
-                            <div class="empty-state">
-                                <i class="fas fa-chart-bar empty-state__icon"></i>
-                                <h3>No Report Generated</h3>
-                                <p>Select parameters and click "Generate" to create a report</p>
                             </div>
                         </div>
                     </div>
-                </div>
-            </section>
-        </div>
-    </main>
+                </section>
+            </div>
+        </main>
+    </div>
 
     <script>
         // Data storage with proper initialization
@@ -1438,9 +1455,14 @@
         
         // DOM elements cache
         const dom = {
+            loginScreen: document.getElementById('loginScreen'),
+            appContent: document.getElementById('appContent'),
+            loginForm: document.getElementById('loginForm'),
+            logoutBtn: document.getElementById('logoutBtn'),
             themeToggle: document.getElementById('themeToggle'),
             navItems: document.querySelectorAll('.nav__item'),
             sections: document.querySelectorAll('.section'),
+            pageTitle: document.getElementById('pageTitle'),
             incomeForm: document.getElementById('income-form'),
             expenseForm: document.getElementById('expense-form'),
             budgetForm: document.getElementById('budget-form'),
@@ -1476,6 +1498,15 @@
         document.addEventListener('DOMContentLoaded', initApp);
         
         function initApp() {
+            // Check if user is logged in (for demo, we'll skip real auth)
+            const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+            
+            if (isLoggedIn) {
+                showApp();
+            } else {
+                showLogin();
+            }
+            
             // Set current date as default for forms
             const today = new Date().toISOString().split('T')[0];
             document.getElementById('income-date').value = today;
@@ -1491,12 +1522,51 @@
             initForms();
             initFilters();
             initReports();
+            initAuth();
             
             // Load data
             loadData();
             
-            // Show dashboard by default
-            showSection('dashboard');
+            // Show dashboard by default if logged in
+            if (isLoggedIn) {
+                showSection('dashboard');
+            }
+        }
+        
+        function initAuth() {
+            // Login form
+            dom.loginForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const email = document.getElementById('login-email').value;
+                const password = document.getElementById('login-password').value;
+                
+                // Simple validation (in a real app, you'd have proper auth)
+                if (email && password) {
+                    localStorage.setItem('isLoggedIn', 'true');
+                    showApp();
+                    showNotification('Login successful', 'success');
+                } else {
+                    showNotification('Please enter email and password', 'error');
+                }
+            });
+            
+            // Logout button
+            dom.logoutBtn.addEventListener('click', function() {
+                localStorage.setItem('isLoggedIn', 'false');
+                showLogin();
+                showNotification('Logged out successfully', 'success');
+            });
+        }
+        
+        function showLogin() {
+            dom.loginScreen.classList.remove('hidden');
+            dom.appContent.classList.add('hidden');
+            dom.loginForm.reset();
+        }
+        
+        function showApp() {
+            dom.loginScreen.classList.add('hidden');
+            dom.appContent.classList.remove('hidden');
         }
         
         function initTheme() {
@@ -1533,7 +1603,9 @@
         
         function initNavigation() {
             dom.navItems.forEach(item => {
-                item.addEventListener('click', function() {
+                item.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
                     // Update active nav item
                     dom.navItems.forEach(nav => nav.classList.remove('nav__item--active'));
                     this.classList.add('nav__item--active');
@@ -1555,6 +1627,10 @@
             const section = document.getElementById(sectionId);
             if (section) {
                 section.classList.remove('hidden');
+                
+                // Update page title
+                const title = sectionId.charAt(0).toUpperCase() + sectionId.slice(1);
+                dom.pageTitle.textContent = title;
                 
                 // Refresh data when certain sections are shown
                 if (sectionId === 'dashboard') {
@@ -2117,7 +2193,7 @@
             
             // Add category breakdown
             overviewHTML += `
-                <div style="margin-bottom: var(--spacing-sm); font-weight: 500;">Category Breakdown</div>
+                <div style="margin-bottom: var(--spacing-sm); font-weight: 600;">Category Breakdown</div>
                 <div id="category-breakdown-chart" class="chart-container"></div>
             `;
             
