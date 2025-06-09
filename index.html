@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FinTrack Pro | Professional Expense Tracker</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <style>
@@ -12,18 +12,22 @@
             --primary: #4f46e5;
             --primary-light: #6366f1;
             --primary-dark: #4338ca;
+            --primary-ultralight: #e0e7ff;
             --secondary: #ec4899;
             --secondary-light: #f43f5e;
             --secondary-dark: #db2777;
             --success: #10b981;
             --success-light: #34d399;
             --success-dark: #059669;
+            --success-ultralight: #d1fae5;
             --warning: #f59e0b;
             --warning-light: #fbbf24;
             --warning-dark: #d97706;
+            --warning-ultralight: #fef3c7;
             --danger: #ef4444;
             --danger-light: #f87171;
             --danger-dark: #dc2626;
+            --danger-ultralight: #fee2e2;
             --dark: #1e293b;
             --dark-light: #334155;
             --light: #f8fafc;
@@ -32,16 +36,18 @@
             --gray-light: #e2e8f0;
             --gray-dark: #64748b;
             --card-bg: #ffffff;
-            --body-bg: #f1f5f9;
+            --body-bg: #f8fafc;
             --text-color: #1e293b;
             --text-secondary: #64748b;
             --border-color: #e2e8f0;
-            --border-radius: 0.5rem;
-            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --border-radius: 0.75rem;
+            --border-radius-sm: 0.5rem;
+            --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
             --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
             --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
             --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
             --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             --spacing-xs: 0.25rem;
             --spacing-sm: 0.5rem;
             --spacing: 1rem;
@@ -56,15 +62,31 @@
             --font-size-xl: 1.5rem;
             --font-size-2xl: 1.75rem;
             --font-size-3xl: 2rem;
+            --font-size-4xl: 2.5rem;
+            --sidebar-width: 280px;
+            --header-height: 70px;
         }
 
         [data-theme="dark"] {
             --primary: #818cf8;
             --primary-light: #a5b4fc;
             --primary-dark: #6366f1;
+            --primary-ultralight: rgba(129, 140, 248, 0.1);
             --secondary: #f472b6;
             --secondary-light: #f9a8d4;
             --secondary-dark: #ec4899;
+            --success: #34d399;
+            --success-light: #6ee7b7;
+            --success-dark: #10b981;
+            --success-ultralight: rgba(52, 211, 153, 0.1);
+            --warning: #fbbf24;
+            --warning-light: #fcd34d;
+            --warning-dark: #f59e0b;
+            --warning-ultralight: rgba(251, 191, 36, 0.1);
+            --danger: #f87171;
+            --danger-light: #fca5a5;
+            --danger-dark: #ef4444;
+            --danger-ultralight: rgba(248, 113, 113, 0.1);
             --card-bg: #1e293b;
             --body-bg: #0f172a;
             --text-color: #f8fafc;
@@ -93,7 +115,7 @@
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             background-color: var(--body-bg);
             color: var(--text-color);
-            transition: var(--transition);
+            transition: var(--transition-slow);
             min-height: 100vh;
             line-height: 1.5;
             text-rendering: optimizeLegibility;
@@ -102,6 +124,7 @@
         }
 
         h1, h2, h3, h4, h5, h6 {
+            font-family: 'Space Grotesk', sans-serif;
             font-weight: 600;
             line-height: 1.25;
             color: var(--text-color);
@@ -180,6 +203,10 @@
             color: var(--warning);
         }
 
+        .text-primary {
+            color: var(--primary);
+        }
+
         .d-flex {
             display: flex;
         }
@@ -232,29 +259,53 @@
             margin-bottom: var(--spacing-xs);
         }
 
+        .mb-2 {
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .mb-3 {
+            margin-bottom: var(--spacing);
+        }
+
+        .mb-4 {
+            margin-bottom: var(--spacing-md);
+        }
+
+        .mb-5 {
+            margin-bottom: var(--spacing-lg);
+        }
+
         /* Layout */
         .app {
             display: grid;
-            grid-template-rows: auto 1fr;
+            grid-template-columns: var(--sidebar-width) 1fr;
+            grid-template-rows: var(--header-height) 1fr;
             min-height: 100vh;
         }
 
         /* Header */
         .header {
+            grid-column: 2;
             position: sticky;
             top: 0;
             z-index: 100;
-            background-color: var(--primary);
-            color: white;
-            box-shadow: var(--shadow-md);
-            padding: var(--spacing) 0;
+            background-color: var(--card-bg);
+            color: var(--text-color);
+            box-shadow: var(--shadow-sm);
+            padding: 0 var(--spacing-lg);
+            height: var(--header-height);
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            border-bottom: 1px solid var(--border-color);
         }
 
         .header__container {
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            justify-content: flex-end;
             gap: var(--spacing);
+            width: 100%;
         }
 
         .logo {
@@ -263,82 +314,115 @@
             gap: var(--spacing-sm);
             font-size: var(--font-size-lg);
             font-weight: 700;
+            font-family: 'Space Grotesk', sans-serif;
         }
 
         .logo__icon {
             font-size: var(--font-size-xl);
+            color: var(--primary);
         }
 
         .theme-toggle {
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 2.25rem;
-            height: 2.25rem;
+            width: 2.5rem;
+            height: 2.5rem;
             border-radius: 50%;
-            color: white;
-            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--text-color);
+            background-color: var(--primary-ultralight);
             transition: var(--transition);
         }
 
         .theme-toggle:hover {
-            background-color: rgba(255, 255, 255, 0.2);
+            background-color: var(--primary-light);
+            color: white;
         }
 
         .theme-toggle__icon {
             font-size: var(--font-size-md);
         }
 
-        /* Navigation */
+        /* Sidebar Navigation */
+        .sidebar {
+            grid-column: 1;
+            grid-row: 1 / span 2;
+            background-color: var(--card-bg);
+            border-right: 1px solid var(--border-color);
+            padding: var(--spacing-lg) 0;
+            overflow-y: auto;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sidebar__header {
+            padding: 0 var(--spacing-lg) var(--spacing-lg);
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: var(--spacing);
+        }
+
         .nav {
             display: flex;
-            background-color: var(--card-bg);
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            margin: var(--spacing) 0;
+            flex-direction: column;
+            gap: var(--spacing-xs);
+            padding: 0 var(--spacing);
         }
 
         .nav__item {
-            flex: 1;
-            padding: var(--spacing) var(--spacing-md);
-            text-align: center;
+            padding: var(--spacing-sm) var(--spacing);
+            text-align: left;
             font-weight: 500;
             color: var(--text-secondary);
             transition: var(--transition);
             position: relative;
             cursor: pointer;
+            border-radius: var(--border-radius-sm);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing);
         }
 
         .nav__item:hover:not(.nav__item--active) {
-            background-color: rgba(99, 102, 241, 0.05);
+            background-color: var(--primary-ultralight);
             color: var(--primary);
         }
 
         .nav__item--active {
+            background-color: var(--primary-ultralight);
             color: var(--primary);
+            font-weight: 600;
         }
 
         .nav__item--active::after {
             content: '';
             position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80%;
-            height: 3px;
+            right: var(--spacing);
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 60%;
             background-color: var(--primary);
-            border-radius: 3px 3px 0 0;
+            border-radius: 2px;
         }
 
         .nav__icon {
-            margin-right: var(--spacing-xs);
-            font-size: var(--font-size-sm);
+            width: 1.5rem;
+            text-align: center;
+            font-size: var(--font-size-md);
+        }
+
+        .nav__text {
+            flex: 1;
         }
 
         /* Main Content */
         .main {
-            padding-bottom: var(--spacing-xl);
+            grid-column: 2;
+            padding: var(--spacing-lg);
+            background-color: var(--body-bg);
         }
 
         /* Dashboard Grid */
@@ -353,14 +437,15 @@
         .card {
             background-color: var(--card-bg);
             border-radius: var(--border-radius);
-            padding: var(--spacing);
-            box-shadow: var(--shadow);
+            padding: var(--spacing-lg);
+            box-shadow: var(--shadow-sm);
             transition: var(--transition);
+            border: 1px solid var(--border-color);
         }
 
         .card:hover {
-            transform: translateY(-0.25rem);
             box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
         }
 
         .card--full {
@@ -375,15 +460,18 @@
         }
 
         .card__title {
-            font-size: var(--font-size);
+            font-size: var(--font-size-sm);
             font-weight: 500;
             color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .card__value {
-            font-size: var(--font-size-2xl);
+            font-size: var(--font-size-3xl);
             font-weight: 700;
-            margin-bottom: var(--spacing-xs);
+            margin: var(--spacing-sm) 0;
+            font-family: 'Space Grotesk', sans-serif;
         }
 
         .card__change {
@@ -397,30 +485,32 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 3rem;
-            height: 3rem;
-            border-radius: var(--border-radius);
-            font-size: var(--font-size-lg);
+            width: 3.5rem;
+            height: 3.5rem;
+            border-radius: var(--border-radius-sm);
+            font-size: var(--font-size-xl);
+            background-color: var(--primary-ultralight);
+            color: var(--primary);
         }
 
         /* Summary Cards */
         .card--income .card__icon {
-            background-color: rgba(16, 185, 129, 0.1);
+            background-color: var(--success-ultralight);
             color: var(--success);
         }
 
         .card--expense .card__icon {
-            background-color: rgba(239, 68, 68, 0.1);
+            background-color: var(--danger-ultralight);
             color: var(--danger);
         }
 
         .card--balance .card__icon {
-            background-color: rgba(99, 102, 241, 0.1);
+            background-color: var(--primary-ultralight);
             color: var(--primary);
         }
 
         .card--budget .card__icon {
-            background-color: rgba(245, 158, 11, 0.1);
+            background-color: var(--warning-ultralight);
             color: var(--warning);
         }
 
@@ -428,7 +518,7 @@
         .form-container {
             max-width: 600px;
             margin: 0 auto;
-            padding: var(--spacing-xl);
+            padding: var(--spacing-xl) 0;
         }
 
         .form {
@@ -436,6 +526,7 @@
             border-radius: var(--border-radius);
             box-shadow: var(--shadow-md);
             padding: var(--spacing-xl);
+            border: 1px solid var(--border-color);
         }
 
         .form__title {
@@ -443,6 +534,11 @@
             margin-bottom: var(--spacing-xl);
             font-size: var(--font-size-xl);
             font-weight: 600;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--spacing);
         }
 
         .form__group {
@@ -461,7 +557,7 @@
             width: 100%;
             padding: var(--spacing-sm) var(--spacing);
             border: 1px solid var(--border-color);
-            border-radius: calc(var(--border-radius) / 2);
+            border-radius: var(--border-radius-sm);
             background-color: var(--card-bg);
             color: var(--text-color);
             font-family: 'Inter', sans-serif;
@@ -501,7 +597,7 @@
             align-items: center;
             justify-content: center;
             padding: var(--spacing-sm) var(--spacing-md);
-            border-radius: calc(var(--border-radius) / 2);
+            border-radius: var(--border-radius-sm);
             font-weight: 500;
             cursor: pointer;
             transition: var(--transition);
@@ -517,6 +613,7 @@
 
         .btn--primary:hover {
             background-color: var(--primary-dark);
+            transform: translateY(-1px);
         }
 
         .btn--block {
@@ -530,6 +627,7 @@
             overflow-x: auto;
             border-radius: var(--border-radius);
             box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-color);
         }
 
         .table {
@@ -543,8 +641,11 @@
             padding: var(--spacing) var(--spacing-md);
             font-weight: 500;
             color: var(--text-secondary);
-            background-color: rgba(99, 102, 241, 0.05);
+            background-color: var(--primary-ultralight);
             border-bottom: 1px solid var(--border-color);
+            text-transform: uppercase;
+            font-size: var(--font-size-xs);
+            letter-spacing: 0.5px;
         }
 
         .table td {
@@ -558,7 +659,7 @@
         }
 
         .table tr:hover {
-            background-color: rgba(99, 102, 241, 0.03);
+            background-color: var(--primary-ultralight);
         }
 
         /* Transaction Items */
@@ -566,19 +667,19 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 2.25rem;
-            height: 2.25rem;
-            border-radius: calc(var(--border-radius) / 2);
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: var(--border-radius-sm);
             margin-right: var(--spacing-sm);
         }
 
         .transaction-type--income {
-            background-color: rgba(16, 185, 129, 0.1);
+            background-color: var(--success-ultralight);
             color: var(--success);
         }
 
         .transaction-type--expense {
-            background-color: rgba(239, 68, 68, 0.1);
+            background-color: var(--danger-ultralight);
             color: var(--danger);
         }
 
@@ -588,12 +689,13 @@
             border-radius: 1rem;
             font-size: var(--font-size-xs);
             font-weight: 500;
-            background-color: rgba(99, 102, 241, 0.1);
+            background-color: var(--primary-ultralight);
             color: var(--primary);
         }
 
         .transaction-amount {
             font-weight: 600;
+            font-family: 'Space Grotesk', sans-serif;
         }
 
         .transaction-amount--income {
@@ -612,7 +714,7 @@
         .action-btn {
             width: 2rem;
             height: 2rem;
-            border-radius: calc(var(--border-radius) / 2);
+            border-radius: var(--border-radius-sm);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -624,12 +726,12 @@
         }
 
         .action-btn:hover {
-            background-color: rgba(99, 102, 241, 0.1);
+            background-color: var(--primary-ultralight);
             color: var(--primary);
         }
 
         .action-btn--delete:hover {
-            background-color: rgba(239, 68, 68, 0.1);
+            background-color: var(--danger-ultralight);
             color: var(--danger);
         }
 
@@ -639,6 +741,10 @@
             gap: var(--spacing);
             margin-bottom: var(--spacing);
             flex-wrap: wrap;
+            background-color: var(--card-bg);
+            padding: var(--spacing);
+            border-radius: var(--border-radius);
+            border: 1px solid var(--border-color);
         }
 
         .filter-group {
@@ -683,6 +789,7 @@
         .progress-amount {
             font-weight: 600;
             font-size: var(--font-size-sm);
+            font-family: 'Space Grotesk', sans-serif;
         }
 
         .progress-bar {
@@ -717,6 +824,7 @@
         /* Charts */
         .chart-container {
             min-height: 300px;
+            margin-top: var(--spacing);
         }
 
         /* Empty States */
@@ -750,6 +858,7 @@
             opacity: 0;
             animation: slideIn 0.3s ease forwards;
             z-index: 1000;
+            border: 1px solid var(--border-color);
         }
 
         .notification--success {
@@ -813,39 +922,79 @@
         }
 
         @media (max-width: 768px) {
-            .form-container {
+            .app {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto 1fr;
+            }
+
+            .sidebar {
+                grid-column: 1;
+                grid-row: 1;
+                height: auto;
+                position: sticky;
+                top: 0;
+                z-index: 100;
+                padding: var(--spacing) 0;
+                border-right: none;
+                border-bottom: 1px solid var(--border-color);
+            }
+
+            .sidebar__header {
+                display: none;
+            }
+
+            .nav {
+                flex-direction: row;
+                overflow-x: auto;
+                padding: var(--spacing-sm);
+                scrollbar-width: none;
+            }
+
+            .nav::-webkit-scrollbar {
+                display: none;
+            }
+
+            .nav__item {
+                flex-direction: column;
+                padding: var(--spacing-sm);
+                font-size: var(--font-size-xs);
+                min-width: 80px;
+            }
+
+            .nav__item--active::after {
+                right: auto;
+                bottom: 0;
+                top: auto;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 60%;
+                height: 3px;
+            }
+
+            .nav__text {
+                display: none;
+            }
+
+            .header {
+                grid-column: 1;
+                padding: 0 var(--spacing);
+            }
+
+            .main {
+                grid-column: 1;
                 padding: var(--spacing);
+            }
+
+            .form-container {
+                padding: var(--spacing) 0;
             }
 
             .form {
                 padding: var(--spacing);
             }
-
-            .nav {
-                flex-direction: column;
-            }
-
-            .nav__item {
-                padding: var(--spacing-sm);
-                text-align: left;
-            }
-
-            .nav__item--active::after {
-                width: 100%;
-                height: 2px;
-                left: 0;
-                transform: none;
-                border-radius: 0;
-            }
         }
 
         @media (max-width: 480px) {
-            .header__container {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: var(--spacing-sm);
-            }
-
             .filter-bar {
                 flex-direction: column;
                 gap: var(--spacing-sm);
@@ -858,12 +1007,43 @@
     </style>
 </head>
 <body class="app">
-    <header class="header">
-        <div class="container header__container">
+    <aside class="sidebar">
+        <div class="sidebar__header">
             <div class="logo">
                 <i class="fas fa-wallet logo__icon"></i>
                 <span>FinTrack Pro</span>
             </div>
+        </div>
+        <nav class="nav">
+            <div class="nav__item nav__item--active" data-target="dashboard">
+                <i class="fas fa-home nav__icon"></i>
+                <span class="nav__text">Dashboard</span>
+            </div>
+            <div class="nav__item" data-target="expense">
+                <i class="fas fa-shopping-cart nav__icon"></i>
+                <span class="nav__text">Expense</span>
+            </div>
+            <div class="nav__item" data-target="income">
+                <i class="fas fa-money-bill-wave nav__icon"></i>
+                <span class="nav__text">Income</span>
+            </div>
+            <div class="nav__item" data-target="transactions">
+                <i class="fas fa-list nav__icon"></i>
+                <span class="nav__text">Transactions</span>
+            </div>
+            <div class="nav__item" data-target="budgets">
+                <i class="fas fa-chart-pie nav__icon"></i>
+                <span class="nav__text">Budgets</span>
+            </div>
+            <div class="nav__item" data-target="reports">
+                <i class="fas fa-file-export nav__icon"></i>
+                <span class="nav__text">Reports</span>
+            </div>
+        </nav>
+    </aside>
+
+    <header class="header">
+        <div class="header__container">
             <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
                 <i class="fas fa-moon theme-toggle__icon"></i>
             </button>
@@ -872,29 +1052,9 @@
 
     <main class="main">
         <div class="container">
-            <nav class="nav">
-                <div class="nav__item nav__item--active" data-target="dashboard">
-                    <i class="fas fa-home nav__icon"></i> Dashboard
-                </div>
-                <div class="nav__item" data-target="income">
-                    <i class="fas fa-money-bill-wave nav__icon"></i> Income
-                </div>
-                <div class="nav__item" data-target="expense">
-                    <i class="fas fa-shopping-cart nav__icon"></i> Expense
-                </div>
-                <div class="nav__item" data-target="transactions">
-                    <i class="fas fa-list nav__icon"></i> Transactions
-                </div>
-                <div class="nav__item" data-target="budgets">
-                    <i class="fas fa-chart-pie nav__icon"></i> Budgets
-                </div>
-                <div class="nav__item" data-target="reports">
-                    <i class="fas fa-file-export nav__icon"></i> Reports
-                </div>
-            </nav>
-
             <!-- Dashboard Section -->
             <section id="dashboard" class="section">
+                <h2 class="mb-4">Dashboard Overview</h2>
                 <div class="dashboard">
                     <!-- Summary Cards -->
                     <div class="card card--income">
@@ -961,7 +1121,7 @@
                     <div class="card" style="grid-column: span 8;">
                         <div class="card__header">
                             <div class="card__title">Monthly Expense Analysis</div>
-                            <select class="form__control" style="width: auto; padding: 0.25rem 0.5rem;" id="chart-period">
+                            <select class="form__control" style="width: auto; padding: 0.5rem 1rem; border-radius: var(--border-radius-sm);" id="chart-period">
                                 <option value="month">This Month</option>
                                 <option value="year">This Year</option>
                             </select>
@@ -1169,7 +1329,7 @@
                         <div class="card__header">
                             <div class="card__title">Set Monthly Budgets</div>
                         </div>
-                        <div style="padding: var(--spacing);">
+                        <div style="padding: var(--spacing-lg);">
                             <form id="budget-form">
                                 <div class="form__group">
                                     <label for="total-budget" class="form__label">Monthly Budget Limit</label>
@@ -1215,7 +1375,7 @@
                     <div class="card__header">
                         <div class="card__title">Generate Reports</div>
                     </div>
-                    <div style="padding: var(--spacing);">
+                    <div style="padding: var(--spacing-lg);">
                         <div class="filter-bar">
                             <div class="filter-group">
                                 <label for="report-type" class="form__label">Report Type</label>
