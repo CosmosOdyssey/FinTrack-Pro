@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FinTrack Pro | Professional Expense Tracker</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <style>
@@ -37,9 +36,8 @@
             --text-color: #1e293b;
             --text-secondary: #64748b;
             --border-color: #e2e8f0;
-            --border-radius: 0.75rem;
-            --border-radius-sm: 0.5rem;
-            --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+            --border-radius: 0.5rem;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
             --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
             --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
             --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
@@ -72,7 +70,7 @@
             --text-color: #f8fafc;
             --text-secondary: #94a3b8;
             --border-color: #334155;
-            --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.25);
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.25);
             --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.25), 0 2px 4px -1px rgba(0, 0, 0, 0.15);
             --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.25), 0 4px 6px -2px rgba(0, 0, 0, 0.15);
             --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.25), 0 10px 10px -5px rgba(0, 0, 0, 0.15);
@@ -92,7 +90,7 @@
         }
 
         body {
-            font-family: 'Manrope', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             background-color: var(--body-bg);
             color: var(--text-color);
             transition: var(--transition);
@@ -104,10 +102,9 @@
         }
 
         h1, h2, h3, h4, h5, h6 {
-            font-weight: 700;
+            font-weight: 600;
             line-height: 1.25;
             color: var(--text-color);
-            font-family: 'Manrope', sans-serif;
         }
 
         a {
@@ -238,58 +235,146 @@
         /* Layout */
         .app {
             display: grid;
-            grid-template-columns: 240px 1fr;
+            grid-template-rows: auto 1fr;
             min-height: 100vh;
         }
 
-        /* Sidebar */
-        .sidebar {
-            background-color: var(--card-bg);
-            border-right: 1px solid var(--border-color);
-            height: 100vh;
-            position: sticky;
-            top: 0;
-            padding: var(--spacing);
+        /* Auth Container */
+        .auth-container {
             display: flex;
-            flex-direction: column;
-            z-index: 100;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: var(--body-bg);
+            padding: var(--spacing);
         }
 
-        .sidebar__header {
-            padding: var(--spacing) 0;
-            margin-bottom: var(--spacing);
-            border-bottom: 1px solid var(--border-color);
+        .auth-card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-lg);
+            width: 100%;
+            max-width: 400px;
+            padding: var(--spacing-xl);
+            transition: var(--transition);
+        }
+
+        .auth-title {
+            text-align: center;
+            margin-bottom: var(--spacing-xl);
+            font-size: var(--font-size-xl);
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .auth-switch {
+            text-align: center;
+            margin-top: var(--spacing);
+            font-size: var(--font-size-sm);
+            color: var(--text-secondary);
+        }
+
+        .auth-switch a {
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        .forgot-password {
+            display: block;
+            text-align: right;
+            font-size: var(--font-size-sm);
+            color: var(--text-secondary);
+            margin-top: var(--spacing-xs);
+        }
+
+        /* Header */
+        .header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background-color: var(--primary);
+            color: white;
+            box-shadow: var(--shadow-md);
+            padding: var(--spacing-sm) 0;
+        }
+
+        .header__container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: var(--spacing);
         }
 
         .logo {
             display: flex;
             align-items: center;
             gap: var(--spacing-sm);
-            font-size: var(--font-size-lg);
+            font-size: var(--font-size-md);
             font-weight: 700;
-            color: var(--primary);
         }
 
-        .logo__img {
-            width: 32px;
-            height: 32px;
+        .logo__icon {
+            font-size: var(--font-size-lg);
         }
 
-        .sidebar__nav {
-            flex: 1;
-            overflow-y: auto;
+        .user-menu {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing);
+        }
+
+        .user-avatar {
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: var(--font-size-sm);
+            font-weight: 600;
+        }
+
+        .theme-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            color: white;
+            background-color: rgba(255, 255, 255, 0.1);
+            transition: var(--transition);
+        }
+
+        .theme-toggle:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .theme-toggle__icon {
+            font-size: var(--font-size-sm);
+        }
+
+        /* Navigation */
+        .nav {
+            display: flex;
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            margin: var(--spacing-sm) 0;
         }
 
         .nav__item {
-            display: flex;
-            align-items: center;
-            gap: var(--spacing-sm);
+            flex: 1;
             padding: var(--spacing-sm) var(--spacing);
-            border-radius: var(--border-radius-sm);
+            text-align: center;
             font-weight: 500;
             color: var(--text-secondary);
             transition: var(--transition);
-            margin-bottom: var(--spacing-xs);
+            position: relative;
+            cursor: pointer;
+            font-size: var(--font-size-sm);
         }
 
         .nav__item:hover:not(.nav__item--active) {
@@ -298,101 +383,36 @@
         }
 
         .nav__item--active {
-            background-color: rgba(99, 102, 241, 0.1);
             color: var(--primary);
         }
 
-        .nav__icon {
-            width: 20px;
-            text-align: center;
-            font-size: var(--font-size-sm);
+        .nav__item--active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 3px;
+            background-color: var(--primary);
+            border-radius: 3px 3px 0 0;
         }
 
-        .sidebar__footer {
-            padding-top: var(--spacing);
-            border-top: 1px solid var(--border-color);
+        .nav__icon {
+            margin-right: var(--spacing-xs);
+            font-size: var(--font-size-xs);
         }
 
         /* Main Content */
         .main {
-            flex: 1;
-            padding: var(--spacing);
-            background-color: var(--body-bg);
-        }
-
-        /* Header */
-        .header {
-            background-color: var(--card-bg);
-            padding: var(--spacing) 0;
-            margin-bottom: var(--spacing);
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow-sm);
-            position: sticky;
-            top: 0;
-            z-index: 90;
-        }
-
-        .header__container {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 var(--spacing);
-        }
-
-        .header__title {
-            font-size: var(--font-size-xl);
-            font-weight: 700;
-        }
-
-        .header__actions {
-            display: flex;
-            align-items: center;
-            gap: var(--spacing);
-        }
-
-        .user-menu {
-            display: flex;
-            align-items: center;
-            gap: var(--spacing-sm);
-        }
-
-        .user-avatar {
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            background-color: var(--primary-light);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: 600;
-        }
-
-        .theme-toggle {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 2.25rem;
-            height: 2.25rem;
-            border-radius: 50%;
-            color: var(--text-color);
-            background-color: var(--body-bg);
-            transition: var(--transition);
-        }
-
-        .theme-toggle:hover {
-            background-color: var(--border-color);
-        }
-
-        .theme-toggle__icon {
-            font-size: var(--font-size-md);
+            padding-bottom: var(--spacing-xl);
         }
 
         /* Dashboard Grid */
         .dashboard {
             display: grid;
             grid-template-columns: repeat(12, 1fr);
-            gap: var(--spacing);
+            gap: var(--spacing-sm);
             margin-bottom: var(--spacing);
         }
 
@@ -401,13 +421,12 @@
             background-color: var(--card-bg);
             border-radius: var(--border-radius);
             padding: var(--spacing);
-            box-shadow: var(--shadow-sm);
+            box-shadow: var(--shadow);
             transition: var(--transition);
-            border: 1px solid var(--border-color);
         }
 
         .card:hover {
-            transform: translateY(-0.25rem);
+            transform: translateY(-0.15rem);
             box-shadow: var(--shadow-md);
         }
 
@@ -419,23 +438,23 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-bottom: var(--spacing);
+            margin-bottom: var(--spacing-sm);
         }
 
         .card__title {
-            font-size: var(--font-size);
-            font-weight: 600;
+            font-size: var(--font-size-sm);
+            font-weight: 500;
             color: var(--text-secondary);
         }
 
         .card__value {
-            font-size: var(--font-size-2xl);
+            font-size: var(--font-size-lg);
             font-weight: 700;
             margin-bottom: var(--spacing-xs);
         }
 
         .card__change {
-            font-size: var(--font-size-sm);
+            font-size: var(--font-size-xs);
             display: flex;
             align-items: center;
             gap: var(--spacing-xs);
@@ -445,24 +464,16 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 3rem;
-            height: 3rem;
-            border-radius: var(--border-radius-sm);
-            font-size: var(--font-size-lg);
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: var(--border-radius);
+            font-size: var(--font-size-md);
         }
 
         /* Summary Cards */
-        .card--income {
-            border-left: 4px solid var(--success);
-        }
-
         .card--income .card__icon {
             background-color: rgba(16, 185, 129, 0.1);
             color: var(--success);
-        }
-
-        .card--expense {
-            border-left: 4px solid var(--danger);
         }
 
         .card--expense .card__icon {
@@ -470,17 +481,9 @@
             color: var(--danger);
         }
 
-        .card--balance {
-            border-left: 4px solid var(--primary);
-        }
-
         .card--balance .card__icon {
             background-color: rgba(99, 102, 241, 0.1);
             color: var(--primary);
-        }
-
-        .card--budget {
-            border-left: 4px solid var(--warning);
         }
 
         .card--budget .card__icon {
@@ -492,32 +495,31 @@
         .form-container {
             max-width: 600px;
             margin: 0 auto;
-            padding: var(--spacing-xl) 0;
+            padding: var(--spacing);
         }
 
         .form {
             background-color: var(--card-bg);
             border-radius: var(--border-radius);
             box-shadow: var(--shadow-md);
-            padding: var(--spacing-xl);
-            border: 1px solid var(--border-color);
+            padding: var(--spacing-lg);
         }
 
         .form__title {
             text-align: center;
-            margin-bottom: var(--spacing-xl);
-            font-size: var(--font-size-xl);
-            font-weight: 700;
+            margin-bottom: var(--spacing-lg);
+            font-size: var(--font-size-lg);
+            font-weight: 600;
         }
 
         .form__group {
-            margin-bottom: var(--spacing-md);
+            margin-bottom: var(--spacing);
         }
 
         .form__label {
             display: block;
             margin-bottom: var(--spacing-xs);
-            font-weight: 600;
+            font-weight: 500;
             color: var(--text-secondary);
             font-size: var(--font-size-sm);
         }
@@ -526,7 +528,7 @@
             width: 100%;
             padding: var(--spacing-sm) var(--spacing);
             border: 1px solid var(--border-color);
-            border-radius: var(--border-radius-sm);
+            border-radius: calc(var(--border-radius) / 2);
             background-color: var(--card-bg);
             color: var(--text-color);
             font-family: 'Inter', sans-serif;
@@ -565,14 +567,15 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: var(--spacing-sm) var(--spacing-md);
-            border-radius: var(--border-radius-sm);
-            font-weight: 600;
+            padding: var(--spacing-sm) var(--spacing);
+            border-radius: calc(var(--border-radius) / 2);
+            font-weight: 500;
             cursor: pointer;
             transition: var(--transition);
             border: none;
             font-family: 'Inter', sans-serif;
             gap: var(--spacing-sm);
+            font-size: var(--font-size-sm);
         }
 
         .btn--primary {
@@ -587,7 +590,7 @@
         .btn--block {
             display: flex;
             width: 100%;
-            padding: var(--spacing) var(--spacing-md);
+            padding: var(--spacing-sm) var(--spacing);
         }
 
         /* Tables */
@@ -595,26 +598,26 @@
             overflow-x: auto;
             border-radius: var(--border-radius);
             box-shadow: var(--shadow-sm);
-            border: 1px solid var(--border-color);
         }
 
         .table {
             width: 100%;
             border-collapse: collapse;
             min-width: 600px;
+            font-size: var(--font-size-sm);
         }
 
         .table th {
             text-align: left;
-            padding: var(--spacing) var(--spacing-md);
-            font-weight: 600;
+            padding: var(--spacing-sm) var(--spacing);
+            font-weight: 500;
             color: var(--text-secondary);
             background-color: rgba(99, 102, 241, 0.05);
             border-bottom: 1px solid var(--border-color);
         }
 
         .table td {
-            padding: var(--spacing) var(--spacing-md);
+            padding: var(--spacing-sm) var(--spacing);
             border-bottom: 1px solid var(--border-color);
             vertical-align: middle;
         }
@@ -632,9 +635,9 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 2.25rem;
-            height: 2.25rem;
-            border-radius: var(--border-radius-sm);
+            width: 2rem;
+            height: 2rem;
+            border-radius: calc(var(--border-radius) / 2);
             margin-right: var(--spacing-sm);
         }
 
@@ -653,13 +656,14 @@
             padding: var(--spacing-xs) var(--spacing-sm);
             border-radius: 1rem;
             font-size: var(--font-size-xs);
-            font-weight: 600;
+            font-weight: 500;
             background-color: rgba(99, 102, 241, 0.1);
             color: var(--primary);
         }
 
         .transaction-amount {
-            font-weight: 700;
+            font-weight: 600;
+            font-size: var(--font-size-sm);
         }
 
         .transaction-amount--income {
@@ -672,13 +676,13 @@
 
         .transaction-actions {
             display: flex;
-            gap: var(--spacing-sm);
+            gap: var(--spacing-xs);
         }
 
         .action-btn {
-            width: 2rem;
-            height: 2rem;
-            border-radius: var(--border-radius-sm);
+            width: 1.75rem;
+            height: 1.75rem;
+            border-radius: calc(var(--border-radius) / 2);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -687,6 +691,7 @@
             cursor: pointer;
             color: var(--gray);
             transition: var(--transition);
+            font-size: var(--font-size-sm);
         }
 
         .action-btn:hover {
@@ -702,20 +707,20 @@
         /* Filter Bar */
         .filter-bar {
             display: flex;
-            gap: var(--spacing);
-            margin-bottom: var(--spacing);
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-sm);
             flex-wrap: wrap;
         }
 
         .filter-group {
             flex: 1;
-            min-width: 200px;
+            min-width: 150px;
         }
 
         .search-bar {
             position: relative;
             flex: 2;
-            min-width: 250px;
+            min-width: 200px;
         }
 
         .search-bar__icon {
@@ -724,35 +729,36 @@
             top: 50%;
             transform: translateY(-50%);
             color: var(--gray);
+            font-size: var(--font-size-sm);
         }
 
         .search-input {
             padding-left: calc(var(--spacing) * 2.5);
+            font-size: var(--font-size-sm);
         }
 
         /* Progress Bars */
         .progress-item {
-            margin-bottom: var(--spacing-md);
+            margin-bottom: var(--spacing);
         }
 
         .progress-header {
             display: flex;
             justify-content: space-between;
             margin-bottom: var(--spacing-xs);
+            font-size: var(--font-size-xs);
         }
 
         .progress-title {
-            font-weight: 600;
-            font-size: var(--font-size-sm);
+            font-weight: 500;
         }
 
         .progress-amount {
-            font-weight: 700;
-            font-size: var(--font-size-sm);
+            font-weight: 600;
         }
 
         .progress-bar {
-            height: 0.5rem;
+            height: 0.375rem;
             background-color: var(--border-color);
             border-radius: 0.25rem;
             overflow: hidden;
@@ -782,57 +788,21 @@
 
         /* Charts */
         .chart-container {
-            min-height: 300px;
+            min-height: 250px;
         }
 
         /* Empty States */
         .empty-state {
             text-align: center;
-            padding: var(--spacing-xl);
+            padding: var(--spacing);
             color: var(--text-secondary);
+            font-size: var(--font-size-sm);
         }
 
         .empty-state__icon {
-            font-size: var(--font-size-3xl);
-            margin-bottom: var(--spacing);
-            color: var(--gray);
-        }
-
-        /* Login Form */
-        .login-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            background-color: var(--body-bg);
-        }
-
-        .login-card {
-            background-color: var(--card-bg);
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow-lg);
-            padding: var(--spacing-xl);
-            width: 100%;
-            max-width: 400px;
-            border: 1px solid var(--border-color);
-        }
-
-        .login-logo {
-            text-align: center;
-            margin-bottom: var(--spacing-xl);
-        }
-
-        .login-logo img {
-            width: 80px;
-            height: 80px;
-            margin-bottom: var(--spacing);
-        }
-
-        .login-title {
             font-size: var(--font-size-xl);
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: var(--spacing-xl);
+            margin-bottom: var(--spacing-sm);
+            color: var(--gray);
         }
 
         /* Notifications */
@@ -853,7 +823,6 @@
             opacity: 0;
             animation: slideIn 0.3s ease forwards;
             z-index: 1000;
-            border: 1px solid var(--border-color);
         }
 
         .notification--success {
@@ -875,7 +844,7 @@
         }
 
         .notification__icon {
-            font-size: var(--font-size-lg);
+            font-size: var(--font-size-md);
         }
 
         .notification--success .notification__icon {
@@ -895,7 +864,7 @@
             border: none;
             color: var(--gray);
             cursor: pointer;
-            font-size: var(--font-size-sm);
+            font-size: var(--font-size-xs);
         }
 
         @keyframes slideIn {
@@ -909,6 +878,63 @@
             }
         }
 
+        /* Modal */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            pointer-events: none;
+            transition: var(--transition);
+        }
+
+        .modal.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .modal-content {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-lg);
+            width: 100%;
+            max-width: 400px;
+            padding: var(--spacing-lg);
+            transform: translateY(-20px);
+            transition: var(--transition);
+        }
+
+        .modal.active .modal-content {
+            transform: translateY(0);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--spacing);
+        }
+
+        .modal-title {
+            font-size: var(--font-size-lg);
+            font-weight: 600;
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            font-size: var(--font-size-lg);
+            cursor: pointer;
+        }
+
         /* Responsive Design */
         @media (max-width: 1024px) {
             .dashboard {
@@ -917,52 +943,29 @@
         }
 
         @media (max-width: 768px) {
-            .app {
-                grid-template-columns: 1fr;
-            }
-            
-            .sidebar {
-                height: auto;
-                position: fixed;
-                bottom: 0;
-                left: 0;
-                right: 0;
-                top: auto;
-                border-right: none;
-                border-top: 1px solid var(--border-color);
-                padding: var(--spacing-sm);
-            }
-            
-            .sidebar__nav {
-                display: flex;
-                overflow-x: auto;
-                padding-bottom: var(--spacing-sm);
-            }
-            
-            .nav__item {
-                flex-direction: column;
-                padding: var(--spacing-xs) var(--spacing-sm);
-                font-size: var(--font-size-xs);
-            }
-            
-            .nav__item span {
-                display: none;
-            }
-            
-            .sidebar__header, .sidebar__footer {
-                display: none;
-            }
-            
-            .main {
-                padding-bottom: 80px;
-            }
-            
             .form-container {
-                padding: var(--spacing) 0;
+                padding: var(--spacing-sm);
             }
 
             .form {
                 padding: var(--spacing);
+            }
+
+            .nav {
+                flex-direction: column;
+            }
+
+            .nav__item {
+                padding: var(--spacing-sm);
+                text-align: left;
+            }
+
+            .nav__item--active::after {
+                width: 100%;
+                height: 2px;
+                left: 0;
+                transform: none;
+                border-radius: 0;
             }
         }
 
@@ -981,18 +984,19 @@
             .filter-group {
                 min-width: 100%;
             }
+
+            .auth-card {
+                padding: var(--spacing);
+            }
         }
     </style>
 </head>
 <body class="app">
-    <!-- Login Screen (shown by default) -->
-    <div id="loginScreen" class="login-container">
-        <div class="login-card">
-            <div class="login-logo">
-                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjNGY0NmU1IiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTEyIDE1djJtLTYgNGgxMmEyIDIgMCAwIDAgMi0ydi02YTIgMiAwIDAgMC0yLTJoLTIuNWwtLjUtMS41YTIgMiAwIDAgMC0xLjgtMUg5LjhhMiAyIDAgMCAwLTEuOCAxbC0uNSAxLjVINWEyIDIgMCAwIDAtMiAydjZhMiAyIDAgMCAwIDIgMloiPjwvcGF0aD48cGF0aCBkPSJNMTIgMTVhMyAzIDAgMSAwIDAtNiAzIDMgMCAwIDAgMCA2WiI+PC9wYXRoPjwvc3ZnPg==" alt="FinTrack Pro Logo">
-                <h1 class="login-title">FinTrack Pro</h1>
-            </div>
-            <form id="loginForm">
+    <!-- Auth Section (shown by default) -->
+    <div id="auth-section" class="auth-container">
+        <div class="auth-card" id="login-card">
+            <h2 class="auth-title">Login to FinTrack</h2>
+            <form id="login-form">
                 <div class="form__group">
                     <label for="login-email" class="form__label">Email</label>
                     <input type="email" id="login-email" class="form__control" placeholder="Enter your email" required>
@@ -1000,75 +1004,89 @@
                 <div class="form__group">
                     <label for="login-password" class="form__label">Password</label>
                     <input type="password" id="login-password" class="form__control" placeholder="Enter your password" required>
+                    <a href="#" class="forgot-password" id="forgot-password">Forgot password?</a>
                 </div>
-                <button type="submit" class="btn btn--primary btn--block mt-4">
+                <button type="submit" class="btn btn--primary btn--block">
                     <i class="fas fa-sign-in-alt"></i> Login
                 </button>
             </form>
+            <div class="auth-switch">
+                Don't have an account? <a href="#" id="show-signup">Sign up</a>
+            </div>
+        </div>
+
+        <div class="auth-card hidden" id="signup-card">
+            <h2 class="auth-title">Create Account</h2>
+            <form id="signup-form">
+                <div class="form__group">
+                    <label for="signup-name" class="form__label">Name</label>
+                    <input type="text" id="signup-name" class="form__control" placeholder="Enter your name" required>
+                </div>
+                <div class="form__group">
+                    <label for="signup-email" class="form__label">Email</label>
+                    <input type="email" id="signup-email" class="form__control" placeholder="Enter your email" required>
+                </div>
+                <div class="form__group">
+                    <label for="signup-password" class="form__label">Password</label>
+                    <input type="password" id="signup-password" class="form__control" placeholder="Create a password" required>
+                </div>
+                <div class="form__group">
+                    <label for="signup-confirm" class="form__label">Confirm Password</label>
+                    <input type="password" id="signup-confirm" class="form__control" placeholder="Confirm your password" required>
+                </div>
+                <button type="submit" class="btn btn--primary btn--block">
+                    <i class="fas fa-user-plus"></i> Sign Up
+                </button>
+            </form>
+            <div class="auth-switch">
+                Already have an account? <a href="#" id="show-login">Login</a>
+            </div>
         </div>
     </div>
 
     <!-- Main App (hidden by default) -->
-    <div id="appContent" class="hidden">
-        <!-- Sidebar Navigation -->
-        <aside class="sidebar">
-            <div class="sidebar__header">
+    <div id="app-section" class="hidden">
+        <header class="header">
+            <div class="container header__container">
                 <div class="logo">
-                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjNGY0NmU1IiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTEyIDE1djJtLTYgNGgxMmEyIDIgMCAwIDAgMi0ydi02YTIgMiAwIDAgMC0yLTJoLTIuNWwtLjUtMS41YTIgMiAwIDAgMC0xLjgtMUg5LjhhMiAyIDAgMCAwLTEuOCAxbC0uNSAxLjVINWEyIDIgMCAwIDAtMiAydjZhMiAyIDAgMCAwIDIgMloiPjwvcGF0aD48cGF0aCBkPSJNMTIgMTVhMyAzIDAgMSAwIDAtNiAzIDMgMCAwIDAgMCA2WiI+PC9wYXRoPjwvc3ZnPg==" alt="FinTrack Pro Logo" class="logo__img">
+                    <i class="fas fa-wallet logo__icon"></i>
                     <span>FinTrack Pro</span>
                 </div>
-            </div>
-            <nav class="sidebar__nav">
-                <a href="#" class="nav__item nav__item--active" data-target="dashboard">
-                    <i class="fas fa-home nav__icon"></i>
-                    <span>Dashboard</span>
-                </a>
-                <a href="#" class="nav__item" data-target="income">
-                    <i class="fas fa-money-bill-wave nav__icon"></i>
-                    <span>Income</span>
-                </a>
-                <a href="#" class="nav__item" data-target="expense">
-                    <i class="fas fa-shopping-cart nav__icon"></i>
-                    <span>Expenses</span>
-                </a>
-                <a href="#" class="nav__item" data-target="transactions">
-                    <i class="fas fa-list nav__icon"></i>
-                    <span>Transactions</span>
-                </a>
-                <a href="#" class="nav__item" data-target="budgets">
-                    <i class="fas fa-chart-pie nav__icon"></i>
-                    <span>Budgets</span>
-                </a>
-                <a href="#" class="nav__item" data-target="reports">
-                    <i class="fas fa-file-export nav__icon"></i>
-                    <span>Reports</span>
-                </a>
-            </nav>
-            <div class="sidebar__footer">
-                <button class="nav__item" id="logoutBtn">
-                    <i class="fas fa-sign-out-alt nav__icon"></i>
-                    <span>Logout</span>
-                </button>
-            </div>
-        </aside>
-
-        <!-- Main Content Area -->
-        <main class="main">
-            <header class="header">
-                <div class="header__container">
-                    <h1 class="header__title" id="pageTitle">Dashboard</h1>
-                    <div class="header__actions">
-                        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
-                            <i class="fas fa-moon theme-toggle__icon"></i>
-                        </button>
-                        <div class="user-menu">
-                            <div class="user-avatar">JS</div>
-                        </div>
-                    </div>
+                <div class="user-menu">
+                    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                        <i class="fas fa-moon theme-toggle__icon"></i>
+                    </button>
+                    <div class="user-avatar" id="user-avatar">U</div>
+                    <button class="btn btn--primary btn--small" id="logout-btn">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </button>
                 </div>
-            </header>
+            </div>
+        </header>
 
+        <main class="main">
             <div class="container">
+                <nav class="nav">
+                    <div class="nav__item nav__item--active" data-target="dashboard">
+                        <i class="fas fa-home nav__icon"></i> Dashboard
+                    </div>
+                    <div class="nav__item" data-target="income">
+                        <i class="fas fa-money-bill-wave nav__icon"></i> Income
+                    </div>
+                    <div class="nav__item" data-target="expense">
+                        <i class="fas fa-shopping-cart nav__icon"></i> Expense
+                    </div>
+                    <div class="nav__item" data-target="transactions">
+                        <i class="fas fa-list nav__icon"></i> Transactions
+                    </div>
+                    <div class="nav__item" data-target="budgets">
+                        <i class="fas fa-chart-pie nav__icon"></i> Budgets
+                    </div>
+                    <div class="nav__item" data-target="reports">
+                        <i class="fas fa-file-export nav__icon"></i> Reports
+                    </div>
+                </nav>
+
                 <!-- Dashboard Section -->
                 <section id="dashboard" class="section">
                     <div class="dashboard">
@@ -1137,7 +1155,7 @@
                         <div class="card" style="grid-column: span 8;">
                             <div class="card__header">
                                 <div class="card__title">Monthly Expense Analysis</div>
-                                <select class="form__control" style="width: auto; padding: 0.25rem 0.5rem;" id="chart-period">
+                                <select class="form__control" style="width: auto; padding: 0.25rem 0.5rem; font-size: var(--font-size-xs);" id="chart-period">
                                     <option value="month">This Month</option>
                                     <option value="year">This Year</option>
                                 </select>
@@ -1157,7 +1175,7 @@
                         <div class="card" style="grid-column: span 7;">
                             <div class="card__header">
                                 <div class="card__title">Recent Transactions</div>
-                                <a href="#" class="text-muted" style="font-size: var(--font-size-sm);">View All</a>
+                                <a href="#" class="text-muted" style="font-size: var(--font-size-xs);">View All</a>
                             </div>
                             <div class="table-container">
                                 <table class="table">
@@ -1440,29 +1458,70 @@
         </main>
     </div>
 
+    <!-- Forgot Password Modal -->
+    <div class="modal" id="forgot-password-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Reset Password</h3>
+                <button class="modal-close" id="close-forgot-modal">&times;</button>
+            </div>
+            <form id="forgot-password-form">
+                <div class="form__group">
+                    <label for="reset-email" class="form__label">Email Address</label>
+                    <input type="email" id="reset-email" class="form__control" placeholder="Enter your email" required>
+                </div>
+                <button type="submit" class="btn btn--primary btn--block">
+                    <i class="fas fa-envelope"></i> Send Reset Link
+                </button>
+            </form>
+        </div>
+    </div>
+
     <script>
         // Data storage with proper initialization
-        let transactions = JSON.parse(localStorage.getItem('transactions')) || [];
-        let budgets = JSON.parse(localStorage.getItem('budgets')) || {
-            total: 0,
-            categories: {
-                food: 0,
-                transport: 0,
-                entertainment: 0,
-                shopping: 0
-            }
-        };
+        let users = JSON.parse(localStorage.getItem('users')) || [];
+        let currentUser = JSON.parse(localStorage.getItem('currentUser')) || null;
+        let transactions = JSON.parse(localStorage.getItem('transactions')) || {};
+        let budgets = JSON.parse(localStorage.getItem('budgets')) || {};
+        
+        // Initialize data for current user if not exists
+        if (currentUser && !transactions[currentUser.email]) {
+            transactions[currentUser.email] = [];
+            localStorage.setItem('transactions', JSON.stringify(transactions));
+        }
+        
+        if (currentUser && !budgets[currentUser.email]) {
+            budgets[currentUser.email] = {
+                total: 0,
+                categories: {
+                    food: 0,
+                    transport: 0,
+                    entertainment: 0,
+                    shopping: 0
+                }
+            };
+            localStorage.setItem('budgets', JSON.stringify(budgets));
+        }
         
         // DOM elements cache
         const dom = {
-            loginScreen: document.getElementById('loginScreen'),
-            appContent: document.getElementById('appContent'),
-            loginForm: document.getElementById('loginForm'),
-            logoutBtn: document.getElementById('logoutBtn'),
+            authSection: document.getElementById('auth-section'),
+            appSection: document.getElementById('app-section'),
+            loginCard: document.getElementById('login-card'),
+            signupCard: document.getElementById('signup-card'),
+            loginForm: document.getElementById('login-form'),
+            signupForm: document.getElementById('signup-form'),
+            showSignup: document.getElementById('show-signup'),
+            showLogin: document.getElementById('show-login'),
+            forgotPassword: document.getElementById('forgot-password'),
+            forgotPasswordModal: document.getElementById('forgot-password-modal'),
+            forgotPasswordForm: document.getElementById('forgot-password-form'),
+            closeForgotModal: document.getElementById('close-forgot-modal'),
+            userAvatar: document.getElementById('user-avatar'),
+            logoutBtn: document.getElementById('logout-btn'),
             themeToggle: document.getElementById('themeToggle'),
             navItems: document.querySelectorAll('.nav__item'),
             sections: document.querySelectorAll('.section'),
-            pageTitle: document.getElementById('pageTitle'),
             incomeForm: document.getElementById('income-form'),
             expenseForm: document.getElementById('expense-form'),
             budgetForm: document.getElementById('budget-form'),
@@ -1498,13 +1557,11 @@
         document.addEventListener('DOMContentLoaded', initApp);
         
         function initApp() {
-            // Check if user is logged in (for demo, we'll skip real auth)
-            const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
-            
-            if (isLoggedIn) {
+            // Check if user is logged in
+            if (currentUser) {
                 showApp();
             } else {
-                showLogin();
+                showAuth();
             }
             
             // Set current date as default for forms
@@ -1518,55 +1575,17 @@
             
             // Initialize components
             initTheme();
+            initAuth();
             initNavigation();
             initForms();
             initFilters();
             initReports();
-            initAuth();
             
-            // Load data
-            loadData();
-            
-            // Show dashboard by default if logged in
-            if (isLoggedIn) {
+            // Load data if user is logged in
+            if (currentUser) {
+                loadData();
                 showSection('dashboard');
             }
-        }
-        
-        function initAuth() {
-            // Login form
-            dom.loginForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                const email = document.getElementById('login-email').value;
-                const password = document.getElementById('login-password').value;
-                
-                // Simple validation (in a real app, you'd have proper auth)
-                if (email && password) {
-                    localStorage.setItem('isLoggedIn', 'true');
-                    showApp();
-                    showNotification('Login successful', 'success');
-                } else {
-                    showNotification('Please enter email and password', 'error');
-                }
-            });
-            
-            // Logout button
-            dom.logoutBtn.addEventListener('click', function() {
-                localStorage.setItem('isLoggedIn', 'false');
-                showLogin();
-                showNotification('Logged out successfully', 'success');
-            });
-        }
-        
-        function showLogin() {
-            dom.loginScreen.classList.remove('hidden');
-            dom.appContent.classList.add('hidden');
-            dom.loginForm.reset();
-        }
-        
-        function showApp() {
-            dom.loginScreen.classList.add('hidden');
-            dom.appContent.classList.remove('hidden');
         }
         
         function initTheme() {
@@ -1598,14 +1617,189 @@
             }
             
             // Re-render charts with new theme
-            renderCharts();
+            if (currentUser) {
+                renderCharts();
+            }
+        }
+        
+        function initAuth() {
+            // Toggle between login and signup forms
+            dom.showSignup.addEventListener('click', function(e) {
+                e.preventDefault();
+                dom.loginCard.classList.add('hidden');
+                dom.signupCard.classList.remove('hidden');
+            });
+            
+            dom.showLogin.addEventListener('click', function(e) {
+                e.preventDefault();
+                dom.signupCard.classList.add('hidden');
+                dom.loginCard.classList.remove('hidden');
+            });
+            
+            // Forgot password
+            dom.forgotPassword.addEventListener('click', function(e) {
+                e.preventDefault();
+                dom.forgotPasswordModal.classList.add('active');
+            });
+            
+            dom.closeForgotModal.addEventListener('click', function() {
+                dom.forgotPasswordModal.classList.remove('active');
+            });
+            
+            // Login form
+            dom.loginForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const email = document.getElementById('login-email').value;
+                const password = document.getElementById('login-password').value;
+                
+                loginUser(email, password);
+            });
+            
+            // Signup form
+            dom.signupForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const name = document.getElementById('signup-name').value;
+                const email = document.getElementById('signup-email').value;
+                const password = document.getElementById('signup-password').value;
+                const confirmPassword = document.getElementById('signup-confirm').value;
+                
+                if (password !== confirmPassword) {
+                    showNotification('Passwords do not match', 'error');
+                    return;
+                }
+                
+                registerUser(name, email, password);
+            });
+            
+            // Forgot password form
+            dom.forgotPasswordForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const email = document.getElementById('reset-email').value;
+                resetPassword(email);
+            });
+            
+            // Logout button
+            dom.logoutBtn.addEventListener('click', logoutUser);
+        }
+        
+        function loginUser(email, password) {
+            const user = users.find(u => u.email === email && u.password === password);
+            
+            if (user) {
+                currentUser = user;
+                localStorage.setItem('currentUser', JSON.stringify(currentUser));
+                
+                // Initialize user data if not exists
+                if (!transactions[user.email]) {
+                    transactions[user.email] = [];
+                    localStorage.setItem('transactions', JSON.stringify(transactions));
+                }
+                
+                if (!budgets[user.email]) {
+                    budgets[user.email] = {
+                        total: 0,
+                        categories: {
+                            food: 0,
+                            transport: 0,
+                            entertainment: 0,
+                            shopping: 0
+                        }
+                    };
+                    localStorage.setItem('budgets', JSON.stringify(budgets));
+                }
+                
+                showApp();
+                showNotification('Login successful', 'success');
+            } else {
+                showNotification('Invalid email or password', 'error');
+            }
+        }
+        
+        function registerUser(name, email, password) {
+            // Check if user already exists
+            const userExists = users.some(u => u.email === email);
+            
+            if (userExists) {
+                showNotification('User with this email already exists', 'error');
+                return;
+            }
+            
+            // Create new user
+            const newUser = {
+                name,
+                email,
+                password
+            };
+            
+            users.push(newUser);
+            localStorage.setItem('users', JSON.stringify(users));
+            
+            // Initialize user data
+            transactions[email] = [];
+            localStorage.setItem('transactions', JSON.stringify(transactions));
+            
+            budgets[email] = {
+                total: 0,
+                categories: {
+                    food: 0,
+                    transport: 0,
+                    entertainment: 0,
+                    shopping: 0
+                }
+            };
+            localStorage.setItem('budgets', JSON.stringify(budgets));
+            
+            // Login the new user
+            currentUser = newUser;
+            localStorage.setItem('currentUser', JSON.stringify(currentUser));
+            
+            showApp();
+            showNotification('Registration successful', 'success');
+        }
+        
+        function resetPassword(email) {
+            const user = users.find(u => u.email === email);
+            
+            if (user) {
+                // In a real app, you would send a password reset email
+                showNotification('Password reset link sent to your email', 'info');
+                dom.forgotPasswordModal.classList.remove('active');
+            } else {
+                showNotification('No account found with this email', 'error');
+            }
+        }
+        
+        function logoutUser() {
+            currentUser = null;
+            localStorage.removeItem('currentUser');
+            showAuth();
+            showNotification('Logged out successfully', 'info');
+        }
+        
+        function showAuth() {
+            dom.appSection.classList.add('hidden');
+            dom.authSection.classList.remove('hidden');
+            dom.loginCard.classList.remove('hidden');
+            dom.signupCard.classList.add('hidden');
+        }
+        
+        function showApp() {
+            dom.authSection.classList.add('hidden');
+            dom.appSection.classList.remove('hidden');
+            
+            // Update user avatar
+            if (currentUser) {
+                dom.userAvatar.textContent = currentUser.name.charAt(0).toUpperCase();
+            }
+            
+            // Load data
+            loadData();
+            showSection('dashboard');
         }
         
         function initNavigation() {
             dom.navItems.forEach(item => {
-                item.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    
+                item.addEventListener('click', function() {
                     // Update active nav item
                     dom.navItems.forEach(nav => nav.classList.remove('nav__item--active'));
                     this.classList.add('nav__item--active');
@@ -1627,10 +1821,6 @@
             const section = document.getElementById(sectionId);
             if (section) {
                 section.classList.remove('hidden');
-                
-                // Update page title
-                const title = sectionId.charAt(0).toUpperCase() + sectionId.slice(1);
-                dom.pageTitle.textContent = title;
                 
                 // Refresh data when certain sections are shown
                 if (sectionId === 'dashboard') {
@@ -1690,12 +1880,24 @@
         }
         
         function loadData() {
+            if (!currentUser) return;
+            
             // Load budgets into form
-            document.getElementById('total-budget').value = budgets.total || '';
-            document.getElementById('food-budget').value = budgets.categories.food || '';
-            document.getElementById('transport-budget').value = budgets.categories.transport || '';
-            document.getElementById('entertainment-budget').value = budgets.categories.entertainment || '';
-            document.getElementById('shopping-budget').value = budgets.categories.shopping || '';
+            const userBudgets = budgets[currentUser.email] || {
+                total: 0,
+                categories: {
+                    food: 0,
+                    transport: 0,
+                    entertainment: 0,
+                    shopping: 0
+                }
+            };
+            
+            document.getElementById('total-budget').value = userBudgets.total || '';
+            document.getElementById('food-budget').value = userBudgets.categories.food || '';
+            document.getElementById('transport-budget').value = userBudgets.categories.transport || '';
+            document.getElementById('entertainment-budget').value = userBudgets.categories.entertainment || '';
+            document.getElementById('shopping-budget').value = userBudgets.categories.shopping || '';
             
             // Initial data update
             updateDashboard();
@@ -1705,6 +1907,8 @@
         }
         
         function addTransaction(type) {
+            if (!currentUser) return;
+            
             const amountInput = document.getElementById(`${type}-amount`);
             const amount = parseFloat(amountInput.value);
             
@@ -1738,7 +1942,7 @@
             };
             
             // Add transaction
-            transactions.push(transaction);
+            transactions[currentUser.email].push(transaction);
             saveTransactions();
             
             // Update UI
@@ -1763,13 +1967,15 @@
         }
         
         function saveBudgets() {
+            if (!currentUser) return;
+            
             const totalBudget = parseFloat(document.getElementById('total-budget').value) || 0;
             const foodBudget = parseFloat(document.getElementById('food-budget').value) || 0;
             const transportBudget = parseFloat(document.getElementById('transport-budget').value) || 0;
             const entertainmentBudget = parseFloat(document.getElementById('entertainment-budget').value) || 0;
             const shoppingBudget = parseFloat(document.getElementById('shopping-budget').value) || 0;
             
-            budgets = {
+            budgets[currentUser.email] = {
                 total: totalBudget,
                 categories: {
                     food: foodBudget,
@@ -1793,12 +1999,14 @@
         }
         
         function updateDashboard() {
+            if (!currentUser) return;
+            
             const currentDate = new Date();
             const currentMonth = currentDate.getMonth();
             const currentYear = currentDate.getFullYear();
             
             // Filter transactions for current month
-            const monthlyTransactions = transactions.filter(t => {
+            const monthlyTransactions = transactions[currentUser.email].filter(t => {
                 const transactionDate = new Date(t.date);
                 return transactionDate.getMonth() === currentMonth && 
                        transactionDate.getFullYear() === currentYear;
@@ -1819,7 +2027,7 @@
             const lastMonth = currentMonth === 0 ? 11 : currentMonth - 1;
             const lastMonthYear = currentMonth === 0 ? currentYear - 1 : currentYear;
             
-            const lastMonthTransactions = transactions.filter(t => {
+            const lastMonthTransactions = transactions[currentUser.email].filter(t => {
                 const transactionDate = new Date(t.date);
                 return transactionDate.getMonth() === lastMonth && 
                        transactionDate.getFullYear() === lastMonthYear;
@@ -1867,9 +2075,10 @@
             balanceChangeEl.className = `card__change ${balanceChange >= 0 ? 'text-success' : 'text-danger'}`;
             
             // Update budget used
-            if (budgets.total > 0) {
-                const budgetUsed = (totalExpense / budgets.total) * 100;
-                const remaining = budgets.total - totalExpense;
+            const userBudgets = budgets[currentUser.email] || { total: 0 };
+            if (userBudgets.total > 0) {
+                const budgetUsed = (totalExpense / userBudgets.total) * 100;
+                const remaining = userBudgets.total - totalExpense;
                 
                 dom.budgetUsed.textContent = `${Math.min(budgetUsed, 100).toFixed(1)}%`;
                 const budgetChangeEl = document.querySelector('.card--budget .card__change');
@@ -1936,12 +2145,14 @@
         }
         
         function filterTransactions() {
+            if (!currentUser) return;
+            
             const searchTerm = dom.transactionSearch.value.toLowerCase();
             const typeFilter = dom.transactionType.value;
             const categoryFilter = dom.transactionCategory.value;
             const dateFilter = dom.transactionDate.value;
             
-            let filtered = [...transactions];
+            let filtered = [...transactions[currentUser.email]];
             
             // Apply filters
             if (typeFilter !== 'all') {
@@ -2030,7 +2241,9 @@
         }
         
         function editTransaction(id) {
-            const transaction = transactions.find(t => t.id === id);
+            if (!currentUser) return;
+            
+            const transaction = transactions[currentUser.email].find(t => t.id === id);
             if (!transaction) {
                 showNotification('Transaction not found', 'error');
                 return;
@@ -2062,10 +2275,12 @@
         }
         
         function deleteTransaction(id, showNotification = true) {
-            const initialLength = transactions.length;
-            transactions = transactions.filter(t => t.id !== id);
+            if (!currentUser) return;
             
-            if (transactions.length === initialLength) {
+            const initialLength = transactions[currentUser.email].length;
+            transactions[currentUser.email] = transactions[currentUser.email].filter(t => t.id !== id);
+            
+            if (transactions[currentUser.email].length === initialLength) {
                 if (showNotification) {
                     showNotification('Transaction not found', 'error');
                 }
@@ -2085,12 +2300,14 @@
         }
         
         function updateBudgetOverview() {
+            if (!currentUser) return;
+            
             const currentDate = new Date();
             const currentMonth = currentDate.getMonth();
             const currentYear = currentDate.getFullYear();
             
             // Filter transactions for current month
-            const monthlyExpenses = transactions
+            const monthlyExpenses = transactions[currentUser.email]
                 .filter(t => t.type === 'expense')
                 .filter(t => {
                     const transactionDate = new Date(t.date);
@@ -2115,11 +2332,21 @@
             };
             
             // Update budget progress bars
-            if (budgets.total === 0 && 
-                budgets.categories.food === 0 && 
-                budgets.categories.transport === 0 && 
-                budgets.categories.entertainment === 0 && 
-                budgets.categories.shopping === 0) {
+            const userBudgets = budgets[currentUser.email] || {
+                total: 0,
+                categories: {
+                    food: 0,
+                    transport: 0,
+                    entertainment: 0,
+                    shopping: 0
+                }
+            };
+            
+            if (userBudgets.total === 0 && 
+                userBudgets.categories.food === 0 && 
+                userBudgets.categories.transport === 0 && 
+                userBudgets.categories.entertainment === 0 && 
+                userBudgets.categories.shopping === 0) {
                 dom.budgetProgressContainer.innerHTML = `
                     <div class="empty-state">
                         <i class="fas fa-chart-pie empty-state__icon"></i>
@@ -2132,7 +2359,7 @@
             let progressHTML = '';
             
             // Create progress bars for each category
-            for (const [category, budget] of Object.entries(budgets.categories)) {
+            for (const [category, budget] of Object.entries(userBudgets.categories)) {
                 if (budget <= 0) continue;
                 
                 const spent = expensesByCategory[category] || 0;
@@ -2161,7 +2388,7 @@
             
             // Update budget overview card
             const totalSpent = monthlyExpenses.reduce((sum, t) => sum + t.amount, 0);
-            const totalBudget = budgets.total;
+            const totalBudget = userBudgets.total;
             const totalPercentage = totalBudget > 0 ? Math.min((totalSpent / totalBudget) * 100, 100) : 0;
             const totalRemaining = totalBudget - totalSpent;
             
@@ -2169,7 +2396,7 @@
             
             if (totalBudget > 0) {
                 overviewHTML += `
-                    <div style="margin-bottom: var(--spacing-md);">
+                    <div style="margin-bottom: var(--spacing);">
                         <div style="display: flex; justify-content: space-between; margin-bottom: var(--spacing-xs);">
                             <span>Total Budget</span>
                             <span>$${totalBudget.toFixed(2)}</span>
@@ -2178,7 +2405,7 @@
                             <span>Total Spent</span>
                             <span>$${totalSpent.toFixed(2)}</span>
                         </div>
-                        <div style="display: flex; justify-content: space-between; margin-bottom: var(--spacing-sm);">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: var(--spacing-xs);">
                             <span>Remaining</span>
                             <span style="color: ${totalRemaining >= 0 ? 'var(--success)' : 'var(--danger)'}">
                                 $${Math.abs(totalRemaining).toFixed(2)} ${totalRemaining >= 0 ? 'left' : 'over'}
@@ -2193,7 +2420,7 @@
             
             // Add category breakdown
             overviewHTML += `
-                <div style="margin-bottom: var(--spacing-sm); font-weight: 600;">Category Breakdown</div>
+                <div style="margin-bottom: var(--spacing-sm); font-weight: 500; font-size: var(--font-size-sm);">Category Breakdown</div>
                 <div id="category-breakdown-chart" class="chart-container"></div>
             `;
             
@@ -2204,6 +2431,8 @@
         }
         
         function renderCharts() {
+            if (!currentUser) return;
+            
             renderExpenseChart();
             renderIncomeExpenseChart();
         }
@@ -2227,7 +2456,7 @@
                     date.setDate(date.getDate() - (29 - i));
                     const dateStr = date.toISOString().split('T')[0];
                     
-                    return transactions
+                    return transactions[currentUser.email]
                         .filter(t => t.type === 'expense' && t.date === dateStr)
                         .reduce((sum, t) => sum + t.amount, 0);
                 });
@@ -2245,7 +2474,7 @@
                     const month = date.getMonth();
                     const year = date.getFullYear();
                     
-                    return transactions
+                    return transactions[currentUser.email]
                         .filter(t => t.type === 'expense')
                         .filter(t => {
                             const transactionDate = new Date(t.date);
@@ -2268,7 +2497,7 @@
                     data: data
                 }],
                 chart: {
-                    height: 350,
+                    height: 250,
                     type: 'area',
                     toolbar: {
                         show: true,
@@ -2380,7 +2609,7 @@
                     date.setDate(date.getDate() - (29 - i));
                     const dateStr = date.toISOString().split('T')[0];
                     
-                    return transactions
+                    return transactions[currentUser.email]
                         .filter(t => t.type === 'income' && t.date === dateStr)
                         .reduce((sum, t) => sum + t.amount, 0);
                 });
@@ -2390,7 +2619,7 @@
                     date.setDate(date.getDate() - (29 - i));
                     const dateStr = date.toISOString().split('T')[0];
                     
-                    return transactions
+                    return transactions[currentUser.email]
                         .filter(t => t.type === 'expense' && t.date === dateStr)
                         .reduce((sum, t) => sum + t.amount, 0);
                 });
@@ -2408,7 +2637,7 @@
                     const month = date.getMonth();
                     const year = date.getFullYear();
                     
-                    return transactions
+                    return transactions[currentUser.email]
                         .filter(t => t.type === 'income')
                         .filter(t => {
                             const transactionDate = new Date(t.date);
@@ -2424,7 +2653,7 @@
                     const month = date.getMonth();
                     const year = date.getFullYear();
                     
-                    return transactions
+                    return transactions[currentUser.email]
                         .filter(t => t.type === 'expense')
                         .filter(t => {
                             const transactionDate = new Date(t.date);
@@ -2452,7 +2681,7 @@
                 }],
                 chart: {
                     type: 'bar',
-                    height: 350,
+                    height: 250,
                     stacked: false,
                     toolbar: {
                         show: true,
@@ -2626,9 +2855,11 @@
         function populateYearDropdown() {
             dom.reportYear.innerHTML = '';
             
+            if (!currentUser) return;
+            
             // Get unique years from transactions
             const years = new Set();
-            transactions.forEach(t => {
+            transactions[currentUser.email].forEach(t => {
                 const year = new Date(t.date).getFullYear();
                 years.add(year);
             });
@@ -2651,12 +2882,14 @@
         }
         
         function generateReport() {
+            if (!currentUser) return;
+            
             const reportType = dom.reportType.value;
             const month = dom.reportMonth.value;
             const year = dom.reportYear.value;
             
             // Filter transactions based on report parameters
-            let filteredTransactions = [...transactions];
+            let filteredTransactions = [...transactions[currentUser.email]];
             
             if (month) {
                 const [yearStr, monthStr] = month.split('-');
@@ -2701,9 +2934,9 @@
                 const balance = totalIncome - totalExpense;
                 
                 reportHTML = `
-                    <div style="margin-bottom: var(--spacing-xl);">
-                        <h3 style="color: var(--primary); margin-bottom: var(--spacing-md);">Monthly Summary Report</h3>
-                        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--spacing); margin-bottom: var(--spacing);">
+                    <div style="margin-bottom: var(--spacing);">
+                        <h3 style="color: var(--primary); margin-bottom: var(--spacing); font-size: var(--font-size-lg);">Monthly Summary Report</h3>
+                        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--spacing-sm); margin-bottom: var(--spacing);">
                             <div class="card">
                                 <div class="card__title">Total Income</div>
                                 <div class="card__value" style="color: var(--success);">$${totalIncome.toFixed(2)}</div>
@@ -2759,7 +2992,7 @@
                     }],
                     chart: {
                         type: 'bar',
-                        height: 350,
+                        height: 250,
                         stacked: true,
                         toolbar: {
                             show: true,
@@ -2832,13 +3065,13 @@
                 });
                 
                 reportHTML = `
-                    <div style="margin-bottom: var(--spacing-xl);">
-                        <h3 style="color: var(--primary); margin-bottom: var(--spacing-md);">Category Breakdown Report</h3>
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing);">
+                    <div style="margin-bottom: var(--spacing);">
+                        <h3 style="color: var(--primary); margin-bottom: var(--spacing); font-size: var(--font-size-lg);">Category Breakdown Report</h3>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-sm);">
                             <div id="category-income-chart" class="chart-container"></div>
                             <div id="category-expense-chart" class="chart-container"></div>
                         </div>
-                        <div class="table-container" style="margin-top: var(--spacing);">
+                        <div class="table-container" style="margin-top: var(--spacing-sm);">
                             <table class="table">
                                 <thead>
                                     <tr>
@@ -3010,10 +3243,10 @@
                 });
                 
                 reportHTML = `
-                    <div style="margin-bottom: var(--spacing-xl);">
-                        <h3 style="color: var(--primary); margin-bottom: var(--spacing-md);">Income vs Expense Report</h3>
+                    <div style="margin-bottom: var(--spacing);">
+                        <h3 style="color: var(--primary); margin-bottom: var(--spacing); font-size: var(--font-size-lg);">Income vs Expense Report</h3>
                         <div id="income-expense-report-chart" class="chart-container"></div>
-                        <div class="table-container" style="margin-top: var(--spacing);">
+                        <div class="table-container" style="margin-top: var(--spacing-sm);">
                             <table class="table">
                                 <thead>
                                     <tr>
@@ -3058,7 +3291,7 @@
                     }],
                     chart: {
                         type: 'bar',
-                        height: 350,
+                        height: 250,
                         stacked: false,
                         toolbar: {
                             show: true,
